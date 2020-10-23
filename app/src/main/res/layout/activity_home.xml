@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <androidx.viewpager.widget.ViewPager
+        android:overScrollMode="never"
+        android:id="@+id/vp_city_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--toolbar-->
+    <RelativeLayout
+        android:id="@+id/rl_home_top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        >
+        <ImageView
+            android:padding="16dp"
+            android:src="@mipmap/home_icon_"
+            android:id="@+id/iv_home_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:drawableRight="@mipmap/home_icon_dingwei"
+            android:id="@+id/tv_home_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_home_set"
+            android:text="深圳"
+            android:drawablePadding="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@id/tv_home_city"
+            android:layout_alignLeft="@+id/tv_home_city"
+            android:orientation="horizontal"></LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_home_week"
+            android:text="星期三"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_low_high"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_report"
+            android:layout_marginRight="16dp"
+            android:text="27°/32°"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_report"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/animation_list_volume"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

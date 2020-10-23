@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="今天"
+            />
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/week"
+            android:layout_marginTop="5dp"
+            android:text="  5月26日  "
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_marginTop="21dp"
+            android:id="@+id/five_tem_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/day"
+            android:layout_centerHorizontal="true"
+            android:text="35°"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            />
+
+        <ImageView
+            android:src="@mipmap/shachen"
+            android:id="@+id/five_wea_icon"
+            android:layout_width="24.81dp"
+            android:layout_height="24.81dp"
+            android:layout_marginTop="24dp"
+            android:layout_below="@id/five_tem_max"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+
+            android:id="@+id/wind_des"
+            android:layout_below="@id/five_wea_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:textSize="10sp"
+            android:textColor="#999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/wind_level"
+            android:text="8级"
+            android:textSize="12sp"
+            android:layout_below="@id/wind_des"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/wind_orientation"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/wind_level"
+            android:text="东南风"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,274 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+
+    defaultConfig {
+        applicationId "com.sanren.weather"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 10000
+        versionName "1.0"
+        flavorDimensions "versionCode"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
+        }
+    }
+
+
+
+
+    signingConfigs {
+//        KEY_STORE=cn.yuntk.reader.jks
+//        KEY_STORE_PASSWORD=ltreader888
+//        KEY_ALIAS=reader
+//        KEY_ALIAS_PASSWORD=ltreader888
+        release {
+            storeFile file("cn.yuntk.reader.jks")
+            storePassword "ltreader888"
+            keyAlias "reader"
+            keyPassword "ltreader888"
+
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        debug {
+            storeFile file("cn.yuntk.reader.jks")
+            storePassword "ltreader888"
+            keyAlias "reader"
+            keyPassword "ltreader888"
+
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets{
+        main{
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []    //disable automatic ndk-build
+        }
+    }
+
+    //    只在打包提测时改apk文件名，开发时记得注释掉
+/*
+    applicationVariants.all { variant ->
+               variant.getPackageApplication().outputDirectory = new File("F:/天气通天气预报")
+              variant.outputs.all {
+                    outputFileName = "${variant.productFlavors[0].manifestPlaceholders.get("app_name_channel")}" +
+                          "_${variant.productFlavors[0].name}" +
+                         "_${variant.versionName}.apk"
+             }
+        }
+*/
+
+    productFlavors {
+
+        _anzhi {
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_anzhi"]
+        }
+        _lenovo {
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_lenovo"]
+        }
+        _oppo {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_oppo"]
+        }
+        _vivo {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_vivo"]
+        }
+        _360 {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_360"]
+        }
+        _xiaomi {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_xiaomi"]
+        }
+        _yingyongbao {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_yingyongbao"]
+        }
+        _baidu {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_baidu"]
+        }
+        _huawei {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_huawei"]
+        }
+        _meizu {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_meizu"]
+        }
+        _alibaba {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_alibaba"]
+        }
+        _google {
+
+            
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:"_google"]
+        }
+
+        _samsung{
+            manifestPlaceholders = [
+                    app_name_channel: "天气通天气预报",
+                    CHANNEL_VALUE:" _samsung"]
+        }
+
+
+
+    }
+}
+
+
+
+
+dependencies {
+    api fileTree(dir: "libs", include: ["*.jar"])
+    api fileTree(dir: "libs", include: ["*.aar"])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation project(path: ':citypicker')
+    implementation project(path: ':module_tool')
+    implementation project(path: ':module_base')
+    implementation project(path: ':module_ad')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.jpeng:JPTabBar:1.4.0'
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    api rootProject.ext.dependencies["retrofitAdapter"]
+    api rootProject.ext.dependencies["retrofitLog"]
+    api rootProject.ext.dependencies["retrofitScalars"]
+
+
+
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    implementation  'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+    
+    implementation 'com.github.tamsiree.RxTool:RxUI:2.6.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    implementation "com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.github.VictorAlbertos.Jolyglot:gson:0.0.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.0'
+
+    //日志打印
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    implementation "org.greenrobot:greendao:3.2.2"
+    implementation 'com.yidian.android:feeds:+'
+
+    implementation 'com.wang.avi:library:2.1.3'
+
+    // 友盟统计SDK
+    implementation  'com.umeng.umsdk:common:9.1.0' // (必选)
+    implementation  'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+
+    //微信
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+
+    //运行时权限申请
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+
+    //BaseRecyclerView
+    api rootProject.ext.dependencies["BaseRecyclerView"]
+
+    //汇率
+    api rootProject.ext.dependencies["materialedittext"]
+
+    //权限
+    implementation 'com.yanzhenjie:permission:1.1.0'
+
+    implementation project(':slideDateTimePicker')
+
+    implementation 'com.github.ForgetAll:LoadingDialog:v1.1.2'
+
+    //高德
+    implementation 'com.amap.api:location:latest.integration'
+
+    //WebView
+    implementation 'com.just.agentweb:agentweb:4.1.4' // (必选)
+
+    //数据库
+    implementation 'org.litepal.guolindev:core:3.2.1'
+
+}
+repositories {
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    mavenCentral()
+}

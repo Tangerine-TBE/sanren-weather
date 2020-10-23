@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_selected="true"><!--被按下时-->
+        <shape android:shape="rectangle"><!--默认为矩形，可以设置为矩形（rectangle）、椭圆形(oval)、线性形状(line)、环形(ring)-->
+            <corners
+                android:topLeftRadius="4dp"
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:bottomLeftRadius="4dp"
+                />
+            <solid android:color="@color/text_blue"/>
+            <stroke android:width="0.5dp" android:color="#E1E1E1" />
+        </shape>
+    </item>
+    <item android:state_selected="false"><!--被按下时-->
+        <shape android:shape="rectangle"><!--默认为矩形，可以设置为矩形（rectangle）、椭圆形(oval)、线性形状(line)、环形(ring)-->
+            <corners
+                android:topLeftRadius="4dp"
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:bottomLeftRadius="4dp"
+                />
+            <solid android:color="@color/white"/>  <!--内部填充色-->
+            <stroke android:width="0.5dp" android:color="#E1E1E1" />
+        </shape>
+    </item>
+
+
+
+</selector>

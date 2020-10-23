@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:text="今天" />
+
+        <TextView
+            android:id="@+id/tv_date_number"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:layout_below="@id/tv_item_date"
+            android:text="07/21" />
+
+
+        <TextView
+            android:id="@+id/tv_airLever"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_date_number"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="16dp"
+            android:text="8"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bt_airLeverBg"
+            android:background="@drawable/shape_air_a_bg"
+            android:layout_below="@id/tv_airLeverTitle"
+            android:layout_width="18dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2.5dp"
+            android:layout_height="2dp"/>
+
+
+        <TextView
+            android:layout_below="@id/tv_airLever"
+            android:id="@+id/tv_airLeverTitle"
+            android:layout_width="wrap_content"
+            android:text="优"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

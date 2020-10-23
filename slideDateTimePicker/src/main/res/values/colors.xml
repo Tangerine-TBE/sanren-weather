@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <item name="gray_holo_dark" type="color">#ff464646</item>
+    <item name="gray_holo_light" type="color">#ffd0d0d0</item>
+    <item name="text_gray" type="color">#757575</item>
+    <item name="text_blue" type="color">#0099FF</item>
+    <item name="white" type="color">#ffffff</item>
+</resources>

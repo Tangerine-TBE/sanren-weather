@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api rootProject.ext.dependencies["immersionbar"]
+    api "com.android.support.constraint:constraint-layout:1.1.3"
+    api  'com.google.android.material:material:1.1.0'
+
+    api rootProject.ext.dependencies["constraint"]
+    api rootProject.ext.dependencies["recyclerview"]
+
+    //rxlifecycle
+    api rootProject.ext.dependencies["rxlifecycle"]
+    api rootProject.ext.dependencies["rxlifecycleComponents"]
+
+    //    时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.8'
+
+    //    popwindow
+    implementation 'com.github.razerdp:BasePopup:2.1.8'
+
+    api rootProject.ext.dependencies["BaseRecyclerView"]
+    api rootProject.ext.dependencies["glide"]
+
+    //kotlin coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1'
+
+    //高德地位
+    implementation 'com.amap.api:location:4.8.0'
+    implementation project(path: ':module_base')
+    implementation project(path: ':module_ad')
+
+}
+repositories {
+    mavenCentral()
+}

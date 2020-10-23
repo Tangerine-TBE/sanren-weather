@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_toolBg"
+        android:paddingLeft="17dp"
+        android:layout_margin="4dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="173dp"
+        android:layout_height="82dp">
+
+        <TextView
+            android:layout_marginTop="21dp"
+            android:id="@+id/tv_toolTitle"
+            android:text="距离测量"
+
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_TitleDes"
+            android:textSize="12sp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:text="精准测量，没有误差"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

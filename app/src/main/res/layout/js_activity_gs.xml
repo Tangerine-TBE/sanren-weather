@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/include_title"
+        layout="@layout/js_layout_common_title_icon"></include>
+
+
+    <LinearLayout
+        android:id="@+id/ll_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_title">
+
+        <com.nanjing.tqlhl.calculator.weiget.SwitchButton
+            android:id="@+id/switchButton"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+
+            android:layout_margin="82dp"
+            android:textColor="@drawable/switch_textcolor_selector"
+            app:sw_checkedColor="@color/them_cjy"
+            app:sw_strokeColor="#D4D4D4"
+            app:sw_switchCount="2"
+            app:sw_textArray="@array/test1"
+            app:sw_unCheckedColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_jj"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+      android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="税前奖金（元）"
+                android:textColor="@color/them_cjy"
+                android:textSize="14sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/edit_fore_money_jj"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="请输入你的税前奖金"
+                    android:inputType="number|numberDecimal"
+                    android:textSize="22sp"
+                    app:met_baseColor="@color/text_gray"
+                    app:met_textColorHint="@color/dot_select" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="您的税后奖金为:"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/tv_result_jj"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/them_cjy"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/scroll_sr"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1"
+
+        android:fillViewport="true">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_weight="7"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="税前收入（元）"
+                        android:textColor="@color/them_cjy"
+                        android:textSize="14sp"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.rengwuxian.materialedittext.MaterialEditText
+                            android:id="@+id/edit_fore_money"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="请输入你的税前收入"
+                            android:inputType="number|numberDecimal"
+                            android:textSize="15sp"
+                            app:met_baseColor="@color/text_gray"
+                            app:met_textColorHint="@color/dot_select" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/rel_ns_times"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="纳税期数"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:entries="@array/workMonths"
+                            android:gravity="right"
+                            android:padding="1dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/rel_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="所在地"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pulltoselect_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/calendar_text_select"
+                            android:drawablePadding="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/rel_starting"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="起征点"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pulltoselect_starting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/calendar_text_select"
+                            android:drawablePadding="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/rel_zxfjkc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="专项附加扣除"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pulltoselect_zxfjkc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/calendar_text_select"
+                            android:drawablePadding="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/rel_wxyj"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="五险一金"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_pulltoselect_wxyj"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:drawableRight="@mipmap/calendar_text_select"
+                            android:drawablePadding="3dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_wxyj_item"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="公积金"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_gjj_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_gjj_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_gjj_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_gjj_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_gjj_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_gjj_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="医疗"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_yl_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_yl_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_yl_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_yl_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_yl_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_yl_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="养老"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_yanglao_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_yanglao_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_yanglao_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_yanglao_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_yanglao_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_yanglao_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="失业"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_sy_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_sy_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_sy_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_sy_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_sy_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_sy_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="工伤"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_gs_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_gs_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_gs_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_gs_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_gs_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_gs_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="生育"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_shengyu_personal"
+                            android:text="个人"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_shengyu_personal"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/tv_shengyu_company"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_shengyu_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/edit_shengyu_company"
+                            android:text="公司"
+                            android:textColor="@color/text_theme"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/edit_shengyu_company"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edit_rectangle"
+                            android:inputType="number|numberDecimal"
+                            android:text="0"
+                            android:textSize="13sp" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/divider_bg"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+    <Button
+        android:id="@+id/btn_caculate"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_shape"
+        android:text="开始计算"
+        android:textColor="@color/white" />
+</LinearLayout>

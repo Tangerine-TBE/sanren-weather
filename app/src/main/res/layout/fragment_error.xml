@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/home_bg"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:background="@drawable/shape_day_permission_bg"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:id="@+id/error_view"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/load_error"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_below="@id/error_view"
+       android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="数据还没赶到，点击重新加载"
+        />
+</RelativeLayout>

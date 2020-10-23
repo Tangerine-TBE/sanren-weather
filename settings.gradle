@@ -1,0 +1,7 @@
+include ':module_base'
+include ':module_ad'
+include ':slideDateTimePicker'
+include ':module_tool'
+include ':citypicker'
+include ':app'
+rootProject.name = "WeatherOne"

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@mipmap/icon_city_bg"
+    android:layout_height="93dp">
+
+            <ImageView
+                android:id="@+id/city_weaIcon"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iocn_small_qingtian"
+                android:layout_width="35dp"
+                android:layout_height="35dp"/>
+
+
+                <TextView
+                    android:id="@+id/city_tem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/city_wea"
+                    android:layout_marginBottom="13dp"
+                    android:layout_above="@+id/city_wea"
+                    android:text="29-36"
+                    android:textSize="17sp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/city_wea"
+                    android:layout_toRightOf="@+id/city_weaIcon"
+                    android:layout_below="@+id/city_weaIcon"
+                    android:layout_marginTop="-10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="晴"
+                    android:textSize="11sp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/city_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="深圳"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_alignTop="@+id/city_tem"
+                    android:textSize="14sp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_city_speed"
+                    android:text="东南风  3级"
+                    android:textSize="11sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/city_wea"
+                    android:layout_alignLeft="@+id/city_wea"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/city_aqi"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="40dp"
+                    android:text="空气  优"
+                    android:layout_toLeftOf="@+id/tv_item_currentTeam"
+                    android:layout_alignBottom="@+id/tv_city_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:id="@+id/tv_item_currentTeam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="当前温度 32°"
+                    android:layout_alignRight="@+id/city_name"
+                    android:layout_alignBottom="@+id/tv_city_speed"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+
+
+
+
+
+</RelativeLayout>

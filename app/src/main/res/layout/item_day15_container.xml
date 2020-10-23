@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/shape_rl_bg"
+    android:layout_marginBottom="12dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/mDate"
+        android:text="08/22"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/mWeek"
+        android:text="周三"
+        android:textSize="15sp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/mDate"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/mWea"
+        android:src="@mipmap/iocn_small_qingtian"
+        android:layout_centerInParent="true"
+        android:layout_width="33dp"
+        android:layout_height="25dp"/>
+
+    <TextView
+        android:id="@+id/mTvWea"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@+id/mWea"
+        android:layout_marginLeft="35dp"
+        android:text="多云"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/mTep"
+        android:textSize="15sp"
+        android:text="23-25"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

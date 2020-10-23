@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@mipmap/huangli_bg"
+    android:layout_height="match_parent">
+
+
+    <include android:id="@+id/hl_toolbar" layout="@layout/layout_toolbar_new"/>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/hl_toolbar"
+        android:id="@+id/rl_hl_include"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/color_huang_li_text"
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2019-06-12" />
+
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginRight="13.5dp"
+            android:layout_weight="1"
+            android:background="@color/color_huang_li" />
+
+        <TextView
+            android:textColor="@color/color_huang_li_text"
+            android:id="@+id/tv_nongli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="七月十六" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginRight="13.5dp"
+            android:layout_weight="1"
+            android:background="@color/color_huang_li" />
+
+        <TextView
+            android:textColor="@color/color_huang_li_text"
+            android:id="@+id/tv_year_xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鼠年" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="13.5dp"
+            android:layout_marginRight="13.5dp"
+            android:layout_weight="1"
+            android:background="@color/color_huang_li" />
+
+        <TextView
+            android:textColor="@color/color_huang_li_text"
+            android:id="@+id/tv_week_xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="星期四" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_big_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="3"
+        android:textColor="@color/color_huang_li"
+        android:textSize="140sp" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_big_date"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/shape_huangli_bg_one"
+        android:padding="8dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:overScrollMode="never"
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_huangli_bg_two"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:id="@+id/include_one_hl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:paddingLeft="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="13.5dp"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:background="@mipmap/home_icon_yi"
+                        android:text="宜"
+                        android:textColor="#2EACFF"
+                        android:textSize="12sp"
+                        android:id="@+id/tv_yi_hl"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/launch_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_yi_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_yi_hl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="求嗣 订婚 嫁娶 求财 开市 交易 安床" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="18dp"
+                    android:paddingRight="8dp"
+                    android:layout_marginBottom="13.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:background="@mipmap/home_icon_ji"
+                        android:text="忌"
+                        android:textColor="#F11F1F"
+                        android:textSize="12sp"
+                        android:id="@+id/tv_ji_hl"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/launch_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_ji_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_ji_hl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="求嗣 订婚 嫁娶 求财 开市 交易 安床" />
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider15"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+
+            <LinearLayout
+                android:layout_marginTop="12.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/shape_huangli_bg_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tv_xx_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="生肖"
+                        android:textColor="#050505" />
+
+                    <TextView
+                        android:id="@+id/tv_xx_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_xx_hl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="11dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="28dp"
+                        android:text="生肖" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/shape_huangli_bg_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tv_xz_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="星座"
+                        android:textColor="#050505" />
+
+                    <TextView
+                        android:id="@+id/tv_xz_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_xz_hl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="11dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="28dp"
+                        android:text="生肖" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/shape_huangli_bg_three"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_wx_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="五行"
+                        android:textColor="#050505" />
+
+                    <TextView
+                        android:id="@+id/tv_wx_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_wx_hl"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="11dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="28dp"
+                        android:text="生肖" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:paddingLeft="12.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_cs_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#050505"
+                        android:text="财神位：" />
+
+                    <TextView
+                        android:id="@+id/tv_cs_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_cs_hl"
+                        android:text="喜神：东北
+福神：正南
+财神：正北" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:paddingLeft="12.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+
+                    <TextView
+                        android:id="@+id/tv_ts_hl"
+                        android:layout_width="wrap_content"
+                        android:textColor="#050505"
+                        android:layout_height="wrap_content"
+                        android:text="胎神方位："
+                    />
+
+                    <TextView
+                        android:id="@+id/tv_ts_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_ts_hl"
+                        android:text="喜神：东北
+福神：正南
+财神：正北" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider16"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:padding="12.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_c_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#050505"
+                        android:text="冲：        " />
+
+                    <TextView
+                        android:id="@+id/tv_c_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_c_hl"
+                        android:text="生肖" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:padding="12.5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_s_hl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#050505"
+                        android:text="煞：        " />
+
+                    <TextView
+                        android:id="@+id/tv_s_hl_text"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_s_hl"
+                        android:text="生肖"  />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider17"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+            <LinearLayout
+                android:padding="12.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="#050505"
+                        android:layout_height="wrap_content"
+                        android:text="凶神：" />
+
+                    <TextView
+                        android:id="@+id/tv_xiongshen"
+                        android:textColor="@color/color_huang_li_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_c_hl"
+                        android:text="己不破券二比并亡 酉不宴客醉坐颠狂"/>
+
+
+            </LinearLayout>
+            <View
+                android:id="@+id/divider18"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+
+
+            <LinearLayout
+                android:padding="12.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#050505"
+                    android:text="吉日：" />
+
+                <TextView
+                    android:id="@+id/tv_jiri"
+                    android:textColor="@color/color_huang_li_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_c_hl"
+                    android:text="己不破券二比并亡 酉不宴客醉坐颠狂"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider19"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+
+            <LinearLayout
+                android:padding="12.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#050505"
+                    android:text="岁次：" />
+
+                <TextView
+                    android:id="@+id/tv_suici"
+                    android:textColor="@color/color_huang_li_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_c_hl"
+                    android:text="己不破券二比并亡 酉不宴客醉坐颠狂"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider20"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/shape_line_bg" />
+
+            <LinearLayout
+                android:padding="12.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#050505"
+                    android:text="吉神宜趋：" />
+
+                <TextView
+                    android:id="@+id/tv_jishenyiqu"
+                    android:textColor="@color/color_huang_li_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_c_hl"
+                    android:text="己不破券二比并亡 酉不宴客醉坐颠狂" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

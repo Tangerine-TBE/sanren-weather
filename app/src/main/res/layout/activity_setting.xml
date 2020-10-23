@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include android:id="@+id/set_bar" layout="@layout/layout_toolbar_new"/>
+        <RelativeLayout
+            android:layout_below="@+id/set_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/banner_container"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:background="@color/colorTransparent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:id="@+id/setting_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/banner_container"
+                >
+
+                <ImageView
+                    android:layout_marginLeft="34dp"
+                    android:id="@+id/login_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/settings_touxiang"/>
+
+                <TextView
+                    android:id="@+id/login_go"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/login_icon"
+                    android:layout_below="@id/login_icon"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="立即登录"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    />
+
+                <ImageView
+                    android:layout_marginRight="28dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/setting_iocn_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@drawable/shape_set_vip_bg"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/rl_vip_des"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="18dp"
+                android:paddingTop="18dp"
+                android:paddingLeft="21dp"
+                android:paddingRight="21dp"
+                android:layout_below="@+id/setting_login"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="62dp">
+
+                <ImageView
+
+                    android:id="@+id/iv_vip_icon"
+                    android:src="@mipmap/ultraviolet_ray"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_toRightOf="@+id/iv_vip_icon"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                android:text="VIP开通"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tv_go_vip"
+                    android:text="开通会员权限"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </RelativeLayout>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginRight="23dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/setting_container"
+                android:layout_below="@+id/rl_vip_des"
+                android:layout_marginTop="47dp"
+                android:layout_width="match_parent"
+                android:overScrollMode="never"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:layout_marginTop="1dp"
+                android:id="@+id/feed_container"
+                android:visibility="visible"
+                android:layout_below="@id/setting_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:drawableLeft="@mipmap/tv_back"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="@color/common_title_bg_text_color"
+            android:textSize="14sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dialog_title_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:ellipsize="end"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:text="专项附加扣除"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dialog_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="专项说明"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/divider_bg"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_znjy"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+android:layout_centerVertical="true"
+
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_znjy"
+            android:text="子女教育"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_znjy"
+            android:inputType="number|numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_gray"
+            android:text="0"
+            android:background="@drawable/edit_rectangle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_jxjy"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_jxjy"
+            android:text="继续教育"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_jxjy"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="0"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/text_gray"
+            android:background="@drawable/edit_rectangle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_dbyl"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_dbyl"
+            android:text="大病医疗"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_dbyl"
+            android:inputType="number|numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="0"
+
+            android:textColor="@color/text_gray"
+            android:background="@drawable/edit_rectangle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_zfdklx"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_zfdklx"
+            android:text="住房贷款利息"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_zfdklx"
+            android:inputType="number|numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="0"
+            android:textColor="@color/text_gray"
+            android:background="@drawable/edit_rectangle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_zfzj"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_zfzj"
+            android:text="住房租金"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_zfzj"
+            android:inputType="number|numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_gray"
+            android:text="0"
+            android:background="@drawable/edit_rectangle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical">
+
+        <com.nanjing.tqlhl.calculator.weiget.SmoothCheckBox
+            android:id="@+id/checkbox_sylr"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            app:color_checked="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_sylr"
+            android:text="赡养老人"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_sylr"
+            android:inputType="number|numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_gray"
+            android:text="0"
+            android:background="@drawable/edit_rectangle" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/divider_bg"></View>
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

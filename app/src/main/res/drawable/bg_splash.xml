@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@mipmap/qdy_bg"
+
+            android:gravity="fill"/>
+    </item>
+
+    <item android:bottom="52dp">
+        <bitmap android:src="@mipmap/qdy_logo"
+            android:gravity="center"/>
+    </item>
+
+    <item android:top="65dp">
+        <bitmap android:src="@mipmap/qdy_txt"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>

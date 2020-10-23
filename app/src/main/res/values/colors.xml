@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#36BFFF</color>
+    <color name="colorPrimaryDark">#36BFFF</color>
+    <color name="colorAccent">#EFEFEF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red_normal">#F11F1F</color>
+    <color name="red_pressed">#FF6666</color>
+    <color name="colorEnableFalse">#CCCCCC</color>
+
+    <!--验证码颜色-->
+    <color name="color_homeTextNormal">#333333</color>
+
+
+    <!--标题栏颜色   -->
+    <color name="colorToolbar">#36BFFF</color>
+
+    <!--主题色-->
+    <color name="colorTheme">#36BFFF</color>
+
+    <!--导航栏颜色-->
+
+    <!--权限申请页字体颜色-->
+
+    <!--空气质量优颜色-->
+    <color name="air_a">#49ED47 </color>
+    <color name="air_b">#FFFF01 </color>
+    <color name="air_c">#FFA401 </color>
+    <color name="air_d">#FE0000 </color>
+    <color name="air_e">#81007F </color>
+    <color name="air_f">#880B20 </color>
+
+
+    <!--背景色-->
+    <color name="bg_a">#FF8239 </color>
+    <color name="bg_b">#28307B </color>
+    <color name="bg_c">#2EACFF </color>
+    <color name="bg_d">#1C4560 </color>
+    <color name="bg_e">#9C6A3F </color>
+
+
+    <!--计算器-->
+
+    <color name="text_blue">#0099FF</color>
+
+    <color name="common_title_bg_text_color">#ffffff</color>
+
+    <color name="colorWhite">#ffffff</color>
+
+
+    <color name="text_theme">#A1A1A1</color>
+
+    <color name="dot_select">#A1A1A1</color>
+
+    <color name="color_theme">#F2F2F2</color>
+
+    <color name="divide">#0E2F464F</color>
+
+    <color name="white_f5">#F5F5F5</color>
+
+    <color name="text_gs_result">#757575</color>
+
+    <!-- ripple 默认效果值 -->
+
+    <item name="text_gray" type="color">#757575</item>
+
+    <!--5.0-->
+    <color name="color_rv_text">#2EACFF</color>
+    <color name="color_login_hint">#31050505</color>
+    <color name="color_huang_li">#FFCB39</color>
+    <color name="color_huang_li_text">#4D4D4D</color>
+    <color name="color_back_text">#050505</color>
+
+
+</resources>

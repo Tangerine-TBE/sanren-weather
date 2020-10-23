@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.nanjing.tqlhl.ui.custom.mj15day.MyToolbar
+        android:id="@+id/air_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="空气质量"
+        />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/air_toolbar"
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/banner_container"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:background="@color/colorTransparent"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                android:id="@+id/iv_aqi_icon"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/icon_aqi"
+                android:layout_width="28dp"
+                android:layout_height="32dp"/>
+
+            <TextView
+                android:id="@+id/tv_aqi_hint"
+                android:text="当前空气质量"
+                android:layout_alignTop="@+id/iv_aqi_icon"
+                android:layout_alignBottom="@+id/iv_aqi_icon"
+                android:layout_toRightOf="@+id/iv_aqi_icon"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_aqi_value"
+                    android:text="差"
+                    android:textColor="#FC6416"
+                    android:layout_alignBaseline="@+id/tv_aqi_hint"
+                    android:layout_toRightOf="@+id/tv_aqi_hint"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            <com.nanjing.tqlhl.ui.custom.AqiLineView
+                android:id="@+id/av_line"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_aqi_icon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/air_container"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_below="@+id/av_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never" />
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_above="@+id/ll_day15_include"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB" />
+
+            <LinearLayout
+                android:id="@+id/ll_day15_include"
+                android:layout_below="@+id/air_container"
+                android:orientation="vertical"
+                android:background="#FBFBFB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--15天天气-->
+                <RelativeLayout
+                    android:id="@+id/rl_15date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/shape_rl_bg"
+                    android:paddingLeft="10dp">
+
+                    <com.nanjing.tqlhl.ui.custom.mj15day.ZzWeatherView
+                        android:id="@+id/weather15_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_future15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/weather15_view"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="19dp"
+                        android:padding="11dp"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/icon_day15_more"
+                        android:text="未来15天天气预报"
+                        android:textColor="@color/color_homeTextNormal" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/air_container"
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_marginTop="4.5dp"
+                        android:id="@+id/feed_container"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

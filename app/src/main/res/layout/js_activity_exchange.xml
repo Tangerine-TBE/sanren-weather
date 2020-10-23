@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <include layout="@layout/js_layout_common_title_icon"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_base"
+                    android:layout_width="38dp"
+
+                    android:layout_height="30dp"
+                    android:layout_above="@+id/text_base"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/flag_cn" />
+
+                <TextView
+                    android:id="@+id/text_base"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="基准单位"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/text_pulltoselect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@+id/img_base"
+                    android:drawableRight="@mipmap/text_pulltoselect"
+                    android:drawablePadding="5dp"
+                    android:text="CNY"
+                    android:textColor="@color/black"
+
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/edit_base"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:hint="请输入"
+                    android:textSize="28sp"
+                    app:met_hideUnderline="true" />
+
+                <TextView
+                    android:id="@+id/text_dw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:text="人民币"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/divider_bg"></View>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_center"
+                    android:layout_width="38dp"
+
+                    android:layout_height="30dp"
+                    android:layout_above="@+id/text_center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/flag_us" />
+
+                <TextView
+                    android:id="@+id/text_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="转换单位"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/text_pulltoselect_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@+id/img_center"
+                    android:drawableRight="@mipmap/text_pulltoselect"
+                    android:drawablePadding="5dp"
+                    android:text="USD"
+                    android:textColor="@color/black"
+
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/edit_base_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:focusable="false"
+                    android:hint="0"
+                    android:textSize="28sp"
+
+                    app:met_baseColor="@color/them_cjy"
+                    app:met_hideUnderline="true" />
+
+                <TextView
+                    android:id="@+id/text_dw_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:text="美元"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/divider_bg"></View>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_base_bottom"
+                    android:layout_width="38dp"
+
+                    android:layout_height="30dp"
+                    android:layout_above="@+id/text_base_bottom"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/flag_de" />
+
+                <TextView
+                    android:id="@+id/text_base_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="6dp"
+                    android:text="转换单位"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/text_pulltoselect_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@+id/img_base_bottom"
+                    android:drawableRight="@mipmap/text_pulltoselect"
+                    android:drawablePadding="5dp"
+                    android:text="EUR"
+                    android:textColor="@color/black"
+
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/edit_base_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:focusable="false"
+                    android:hint="0"
+
+                    android:textSize="28sp"
+                    app:met_baseColor="@color/them_cjy"
+                    app:met_hideUnderline="true" />
+
+                <TextView
+                    android:id="@+id/text_dw_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:text="欧元"
+                    android:textColor="@color/dot_select"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/js_keyboard1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="3" />
+
+
+</LinearLayout>

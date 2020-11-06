@@ -45,7 +45,7 @@ import com.tamsiree.rxkit.RxBarTool;
 import com.tamsiree.rxkit.view.RxToast;
 import com.tamsiree.rxui.view.dialog.RxDialogSureCancel;
 import com.nanjing.tqlhl.R;
-import com.yidian.newssdk.exportui.NewsPortalFragment;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ import butterknife.BindView;
 public class SettingFragment extends BaseFragment implements SettingAdapter.OnItemClickListener, ILoginCallback, IThirdlyLoginCallback, IWeChatCallback, ILogoutCallback {
 
 
-    private NewsPortalFragment mNewsPortalFragment;
+
 
     @BindView(R.id.toolbar3)
     Toolbar mToolbar;

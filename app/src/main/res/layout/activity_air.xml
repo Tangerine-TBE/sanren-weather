@@ -31,12 +31,12 @@
                 android:id="@+id/banner_container"
                 android:layout_width="match_parent"
                 android:visibility="gone"
-                android:background="@color/colorTransparent"
                 android:layout_height="wrap_content"/>
 
 
             <ImageView
                 android:id="@+id/iv_aqi_icon"
+                android:layout_below="@+id/banner_container"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="15dp"
                 android:src="@mipmap/icon_aqi"
@@ -100,7 +100,7 @@
                 android:orientation="vertical"
                 android:background="#FBFBFB"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
                 <!--15天天气-->
                 <RelativeLayout
                     android:id="@+id/rl_15date"
@@ -137,20 +137,16 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_below="@+id/air_container"
+                    android:layout_below="@+id/ll_day15_include"
                     android:layout_height="wrap_content">
                     <FrameLayout
                         android:layout_marginTop="4.5dp"
                         android:id="@+id/feed_container"
-                        android:visibility="gone"
                         android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
-
-
-
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

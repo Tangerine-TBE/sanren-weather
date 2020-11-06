@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
+import com.example.module_ad.advertisement.BanFeedHelper;
 import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.base.BaseMainActivity;
 import com.nanjing.tqlhl.model.bean.AirBean;
@@ -52,8 +53,7 @@ public class AirActivity extends BaseMainActivity  {
     TextView tv_aqi_value;
     @BindView(R.id.av_line)
     AqiLineView av_line;
-
-
+    private BanFeedHelper mBanFeedHelper;
     private MjAqiBean.DataBean.AqiBean mMjAqiBean;
     private Mj5AqiBean mMj5AqiBean;
     private Mj15DayWeatherBean.DataBean mMj15DayWeatherBean;
@@ -66,11 +66,17 @@ public class AirActivity extends BaseMainActivity  {
 
     @Override
     protected void intView() {
+        //加载广告
+        mBanFeedHelper = new BanFeedHelper(this, mBannerContainer, mFeedContainer);
+        mBanFeedHelper.showAd(BanFeedHelper.AdType.AIRQUALITY_PAGE);
+
+
         init15DayWeather();
         Intent intent = getIntent();
         String aqiData= intent.getStringExtra(Contents.MJ_API);
         String aqi5Data = intent.getStringExtra(Contents.MJ_API5);
         String fifteenData = intent.getStringExtra(Contents.MJ_DAY15);
+
 
         if (!TextUtils.isEmpty(aqiData)) {
             mMjAqiBean = JSON.parseObject(aqiData, MjAqiBean.DataBean.AqiBean.class);
@@ -182,7 +188,9 @@ public class AirActivity extends BaseMainActivity  {
 
     @Override
     protected void release() {
-
+        if (mBanFeedHelper != null) {
+            mBanFeedHelper.releaseAd();
+        }
     }
 
 

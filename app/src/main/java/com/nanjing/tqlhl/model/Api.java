@@ -71,7 +71,7 @@ public interface Api {
         Call<WeiXinBean> toWxAccredit(@QueryMap Map<String,String> params);
 
 
-        @GET("zhognhuaWeather")
+        @GET("anSanrenWeather")
         Call<AdBean> getAdMessage(@QueryMap  Map<String,String> params);
 
 

@@ -1,6 +1,7 @@
 package com.nanjing.tqlhl.ui.activity;
 
 import android.text.TextUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
+import com.example.module_ad.advertisement.BanFeedHelper;
 import com.example.module_ad.utils.MyStatusBarUtil;
 import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.base.BaseMainActivity;
@@ -37,7 +39,10 @@ import butterknife.BindView;
  */
 public class DayDetailsActivity extends BaseMainActivity {
 
-
+    @BindView(R.id.banner_container)
+    FrameLayout mBannerContainer;
+    @BindView(R.id.feed_container)
+    FrameLayout mFeedContainer;
     @BindView(R.id.tv_bar_title)
     TextView tv_bar_title;
     @BindView(R.id.tv_sun_up)
@@ -58,7 +63,7 @@ public class DayDetailsActivity extends BaseMainActivity {
     RecyclerView rv_day24;
     @BindView(R.id.details_bar)
     MyToolbar details_bar;
-
+    private BanFeedHelper mBanFeedHelper;
 
 
     @Override
@@ -84,6 +89,9 @@ public class DayDetailsActivity extends BaseMainActivity {
         String lowAndHigh = getIntent().getStringExtra(Contents.MJ_LOW_HIGH);
         String hours24 = getIntent().getStringExtra(Contents.MJ_HOURS24);
 
+        //加载广告
+        mBanFeedHelper = new BanFeedHelper(this, mBannerContainer, mFeedContainer);
+        mBanFeedHelper.showAd(BanFeedHelper.AdType.AIRQUALITY_PAGE);
 
         if (!TextUtils.isEmpty(realWeather)&!TextUtils.isEmpty(zwx)&!TextUtils.isEmpty(hours24)) {
             MjRealWeatherBean.DataBean.ConditionBean conditionBean = JSON.parseObject(realWeather, MjRealWeatherBean.DataBean.ConditionBean.class);
@@ -141,4 +149,10 @@ public class DayDetailsActivity extends BaseMainActivity {
         });
     }
 
+    @Override
+    protected void release() {
+        if (mBanFeedHelper != null) {
+            mBanFeedHelper.releaseAd();
+        }
+    }
 }

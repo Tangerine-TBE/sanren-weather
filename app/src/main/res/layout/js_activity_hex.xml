@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -50,6 +51,7 @@
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/edit_two"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
@@ -84,12 +86,13 @@
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/edit_ten"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
 
-                    android:maxLength="15"
+                    android:maxLength="9"
                     android:paddingLeft="100dp"
                     android:textSize="28sp"
                     app:met_baseColor="@color/them_cjy" />
@@ -118,12 +121,13 @@
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/edit_eight"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
 
-                    android:maxLength="15"
+                    android:maxLength="9"
                     android:paddingLeft="100dp"
                     android:textSize="28sp"
                     app:met_baseColor="@color/them_cjy" />
@@ -152,12 +156,13 @@
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/edit_sixteen"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
 
-                    android:maxLength="15"
+                    android:maxLength="9"
                     android:paddingLeft="100dp"
                     android:textSize="28sp"
                     app:met_baseColor="@color/them_cjy" />

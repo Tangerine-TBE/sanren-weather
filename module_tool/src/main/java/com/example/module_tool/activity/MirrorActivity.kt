@@ -18,7 +18,9 @@ import com.example.module_tool.R
 import com.example.module_tool.base.BaseActivity
 import com.example.module_tool.utils.DeviceUtils
 import com.example.module_tool.utils.getCloselyPreSize
+import com.tamsiree.rxkit.RxTool
 import kotlinx.android.synthetic.main.activity_mirror_cjy.*
+import java.lang.Exception
 
 class MirrorActivity : BaseActivity(){
     private val cameraManager: CameraManager by lazy { getSystemService(Context.CAMERA_SERVICE) as CameraManager }
@@ -44,8 +46,12 @@ class MirrorActivity : BaseActivity(){
 
     override fun initView() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        cameraCharacteristics=cameraManager.getCameraCharacteristics(cameraId.toString())
-        aeRange=cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_COMPENSATION_RANGE)
+        try {
+            cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId.toString())
+            aeRange = cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_COMPENSATION_RANGE)
+        } catch (e: Exception) {
+            finish()
+        }
 
         initCallBack()
         textureView.surfaceTextureListener=surfaceTextureListener

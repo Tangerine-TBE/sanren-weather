@@ -85,16 +85,20 @@ public class FirstLocationActivity extends BaseMainActivity implements OnPickLis
 
     private void selectCitySuccess() {
         MyStatusBarUtil.setFullScreen(this,true);
-        //展示广告
-       mSplashHelper.showAd();
         SpUtils.getInstance().putBoolean(Contents.IS_FIRST, false).commit();
         SpUtils.getInstance().putBoolean(Contents.FIRST_LOCATION, true).commit();
         getSharedPreferences(Contents.NO_BACK_SP, MODE_PRIVATE).edit().putBoolean(Contents.NO_BACK, false).apply();
-
-        AMapLocationClient locationClient = mGaoDeHelper.getLocationClient();
-        if (locationClient!=null) {
-            locationClient.unRegisterLocationListener(this);
+        //展示广告
+        if (mSplashHelper != null) {
+            mSplashHelper.showAd();
         }
+        if (mGaoDeHelper!=null) {
+            AMapLocationClient locationClient = mGaoDeHelper.getLocationClient();
+            if (locationClient!=null) {
+                locationClient.unRegisterLocationListener(this);
+            }
+        }
+
     }
 
     @Override

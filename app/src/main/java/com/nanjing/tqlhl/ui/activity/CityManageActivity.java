@@ -260,7 +260,6 @@ public class CityManageActivity extends BaseMainActivity implements OnPickListen
     @Override
     public void onItemClick(SwipeMenuBridge menuBridge, int adapterPosition) {
         menuBridge.closeMenu();
-
         int direction = menuBridge.getDirection(); // 左侧还是右侧菜单。
         if (direction == SwipeRecyclerView.RIGHT_DIRECTION) {
             mCityListAdapter.deleteCity(adapterPosition);

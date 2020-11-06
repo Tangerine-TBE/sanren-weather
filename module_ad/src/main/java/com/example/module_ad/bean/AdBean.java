@@ -62,15 +62,15 @@ public class AdBean {
         private SettingPageBean setting_page;
         private ExitPageBean exit_page;
         private AdvertisementBean Advertisement;
-        private ToolPageBean tool_page;
+        private ToolPageBean tools_page;
 
 
         public ToolPageBean getTool_page() {
-            return tool_page;
+            return tools_page;
         }
 
         public void setTool_page(ToolPageBean tool_page) {
-            this.tool_page = tool_page;
+            this.tools_page = tool_page;
         }
 
         public StartPageBean getStart_page() {

@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.nanjing.tqlhl.R
 import com.nanjing.tqlhl.model.bean.Mj15DayWeatherBean
-import com.nanjing.tqlhl.utils.ChangeBgUtil
 import com.nanjing.tqlhl.utils.Contents
 import com.nanjing.tqlhl.utils.DateUtil
 import com.nanjing.tqlhl.utils.WeatherUtils

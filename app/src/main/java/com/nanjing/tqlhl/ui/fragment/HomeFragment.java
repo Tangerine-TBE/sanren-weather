@@ -386,9 +386,6 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
 
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-
-        LogUtils.i( this, "LocationListener-------------------------->" + mCurrentCity + mLatitude + "-----------------" + mLongitude);
-        //定位失败那 没网拿缓存  or  拿SP中存的当前位置经纬度拿数据
         if (aMapLocation.getLatitude() != 0.0 || aMapLocation.getLongitude() != 0.0) {
             mCurrentCity = WeatherUtils.cityType(aMapLocation.getCity());
             mLongitude = aMapLocation.getLongitude();
@@ -411,7 +408,6 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
                     cityCacheBean.setLatitude(mLatitude + "");
                     mCityCachePresent.updateLocationCity(cityCacheBean,lastCity,lastLong,lastLat);
                     mIsOne = true;
-                   // mCityCachePresent.queryCityCache();
                      SpUtils.getInstance().putString(Contents.CURRENT_CITY, mCurrentCity)
                             .putString(Contents.CURRENT_LONG, mLongitude + "")
                             .putString(Contents.CURRENT_LAT, mLatitude + "")

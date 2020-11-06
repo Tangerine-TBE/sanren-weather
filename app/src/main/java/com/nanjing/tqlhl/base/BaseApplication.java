@@ -7,13 +7,11 @@ import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.example.module_ad.advertisement.TTAdManagerHolder;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
-import com.nanjing.tqlhl.BuildConfig;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.PackageUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
 import com.tamsiree.rxkit.RxTool;
 import com.umeng.commonsdk.UMConfigure;
-import com.yidian.newssdk.NewsFeedsSDK;
 
 import org.json.JSONObject;
 import org.litepal.LitePal;
@@ -54,16 +52,9 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
             e.printStackTrace();
         }
         FeedbackAPI.setAppExtInfo(jsonObject);
-        //头条新闻
-        new NewsFeedsSDK.Builder()
-                .setAppId(APP_ID)
-                .setAppKey(APP_KEY)
-                .setContext(getApplicationContext())
-                .setDebugEnabled(BuildConfig.DEBUG)
-                .build();
 
         //友盟
-        UMConfigure.init(getApplicationContext(),UMConfigure.DEVICE_TYPE_PHONE,"5f607006d9aa8a2c8d6b9a1f");
+        UMConfigure.init(getApplicationContext(),UMConfigure.DEVICE_TYPE_PHONE,"5f96c7712065791705f99284");
         UMConfigure.setLogEnabled(true);
 
         //穿山甲广告

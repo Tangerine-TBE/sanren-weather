@@ -25,6 +25,7 @@ import com.nanjing.tqlhl.presenter.Impl.AdPresentImpl;
 import com.nanjing.tqlhl.ui.activity.AgreementActivity;
 import com.nanjing.tqlhl.ui.activity.FirstLocationActivity;
 import com.nanjing.tqlhl.ui.activity.PrivacyActivity;
+import com.nanjing.tqlhl.ui.custom.SmoothCheckBox;
 import com.nanjing.tqlhl.utils.ColorUtil;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
@@ -36,6 +37,7 @@ import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
 import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
+import com.tamsiree.rxkit.view.RxToast;
 
 import java.util.List;
 
@@ -57,6 +59,8 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
 
     @BindView(R.id.bt_try)
     TextView mTry;
+    @BindView(R.id.checkBox)
+    SmoothCheckBox checkBox;
 
     @BindView(R.id.permission_container)
     FrameLayout mAdContainer;
@@ -181,8 +185,11 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
         mGoMainBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                checkRuntimePermission();
+                if (checkBox.isChecked()) {
+                    checkRuntimePermission();
+                } else {
+                    RxToast.normal("请确保您已同意本应用的隐私政策和用户协议");
+                }
             }
         });
 
@@ -192,6 +199,9 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
                 checkRuntimePermission();
             }
         });
+
+
+
 
     }
 

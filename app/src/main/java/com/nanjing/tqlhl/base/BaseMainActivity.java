@@ -169,7 +169,7 @@ public abstract class BaseMainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-     //  MobclickAgent.onResume(this);
+    //   MobclickAgent.onResume(this);
         SharedPreferences no_back_sp = BaseApplication.getAppContext().getSharedPreferences(Contents.NO_BACK_SP, MODE_PRIVATE);
         boolean no_back = no_back_sp.getBoolean(Contents.NO_BACK, false);
         if (no_back) {

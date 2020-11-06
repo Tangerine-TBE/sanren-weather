@@ -2,6 +2,7 @@ package com.nanjing.tqlhl.calculator.ui.activity;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
@@ -118,7 +119,11 @@ public class AllExchangeActivity extends BaseActivity2 implements OnDialogItemCl
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
     private void initData() {
+        if (TextUtils.isEmpty(title)) {
+            return;
+        }
         switch (title) {
             case "面积转换":
                 initAreaData();

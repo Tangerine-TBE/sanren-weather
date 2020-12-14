@@ -63,8 +63,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/text_dw_center"
                     android:layout_alignParentRight="true"
-
                     android:hint="0"
+                    android:inputType="number"
                     android:maxLength="15"
                     android:textSize="28sp"
                     app:met_baseColor="@color/them_cjy"
@@ -131,7 +131,7 @@
                     android:layout_marginTop="2dp"
                     android:focusable="false"
                     android:hint="0"
-
+                    android:inputType="number"
                     android:maxLength="15"
                     android:textSize="28sp"
                     app:met_baseColor="@color/them_cjy"

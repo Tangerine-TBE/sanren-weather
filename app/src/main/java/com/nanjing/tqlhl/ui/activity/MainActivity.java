@@ -11,11 +11,6 @@ import android.widget.PopupWindow;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.jpeng.jptabbar.JPTabBar;
-import com.jpeng.jptabbar.OnTabSelectListener;
-import com.jpeng.jptabbar.anno.NorIcons;
-import com.jpeng.jptabbar.anno.SeleIcons;
-import com.jpeng.jptabbar.anno.Titles;
 import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.base.BaseFragment;
 import com.nanjing.tqlhl.base.BaseMainActivity;
@@ -38,20 +33,14 @@ import butterknife.BindView;
  */
 public class MainActivity extends BaseMainActivity {
 
-    @BindView(R.id.JPTabBar)
-    JPTabBar mJPTabBar;
+
     @BindView(R.id.main_container)
     FrameLayout mFrameLayout;
     private ExitPoPupWindow mExitPoPupWindow;
     private ValueAnimator mInValueAnimator;
     private ValueAnimator mOutValueAnimator;
 
-    @Titles
-    private static final String[] mTitles = {"天气", "空气质量","今日黄历","城市管理"};
-    @SeleIcons
-    private static final int[] mSeleIcons = {R.mipmap.icon_home_tq_select, R.mipmap.icon_home_aqi_select, R.mipmap.icon_home_hl_select,R.mipmap.icon_home_city_select};
-    @NorIcons
-    private static final int[] mNormalIcons = {R.mipmap.icon_home_tq_normal, R.mipmap.icon_home_aqi_normal, R.mipmap.icon_home_hl_normal,R.mipmap.icon_home_city_normal};
+
     private HomeFragment mHomeFragment;
     private AirFragment mAirFragment;
     private HuangLiFragment mHuangLiFragment;
@@ -130,31 +119,6 @@ public class MainActivity extends BaseMainActivity {
             }
         });
 
-
-        mJPTabBar.setTabListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelect(int index) {
-                switch (index) {
-                    case 0:
-                        showFragment(mHomeFragment);
-                        break;
-                    case 1:
-                        showFragment(mAirFragment);
-                        break;
-                    case 2:
-                        showFragment(mHuangLiFragment);
-                        break;
-                    case 3:
-                        showFragment(mCityMangerFragment);
-                        break;
-                }
-            }
-
-            @Override
-            public boolean onInterruptSelect(int index) {
-                return false;
-            }
-        });
 
 
     }

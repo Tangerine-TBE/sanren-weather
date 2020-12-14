@@ -43,7 +43,6 @@ import com.tamsiree.rxkit.view.RxToast;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -110,7 +109,7 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
         rl_home_top_toolbar.setLayoutParams(layoutParams1);
 
         mIsOne=true;
-        LitePal.getDatabase();
+
         mGaoDeHelper = GaoDeHelper.getInstance();
         mGaoDeHelper.setListener(this);
         mGaoDeHelper.startLocation();

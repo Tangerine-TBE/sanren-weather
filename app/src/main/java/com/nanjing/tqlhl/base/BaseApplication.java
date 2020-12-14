@@ -40,6 +40,7 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
         RxTool.init(this);
         SpUtils.init(this);
         LitePal.initialize(this);
+        LitePal.getDatabase();
         //用户反馈
         FeedbackAPI.init(this,"25822454","7a8bb94331a5141dcea61ecb1056bbbd");
         JSONObject jsonObject = new JSONObject();

@@ -19,6 +19,7 @@ import com.example.module_tool.base.BaseActivity
 import com.example.module_tool.utils.DeviceUtils
 import com.example.module_tool.utils.getCloselyPreSize
 import com.tamsiree.rxkit.RxTool
+import com.tamsiree.rxkit.view.RxToast
 import kotlinx.android.synthetic.main.activity_mirror_cjy.*
 import java.lang.Exception
 
@@ -148,7 +149,13 @@ class MirrorActivity : BaseActivity(){
     private fun initCamera2(){
         if (ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED)
             return
-        cameraManager.openCamera(cameraId.toString(),openCallBack,childHandler)
+        try {
+            cameraManager.openCamera(cameraId.toString(),openCallBack,childHandler)
+        }catch (e:Exception){
+            RxToast.warning("手机暂不支持该功能")
+            finish()
+        }
+
     }
     private fun initClick(){
         seekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{

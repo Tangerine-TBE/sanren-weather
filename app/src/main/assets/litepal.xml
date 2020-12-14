@@ -2,7 +2,7 @@
 <litepal>
     <dbname value="weather_cache" ></dbname>
 
-    <version value="1" ></version>
+    <version value="2" ></version>
 
     <list>
         <mapping class="com.nanjing.tqlhl.db.newcache.bean.WeaCacheBean"></mapping>

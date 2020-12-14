@@ -96,11 +96,12 @@ public class DayDetailsActivity extends BaseMainActivity {
         if (!TextUtils.isEmpty(realWeather)&!TextUtils.isEmpty(zwx)&!TextUtils.isEmpty(hours24)) {
             MjRealWeatherBean.DataBean.ConditionBean conditionBean = JSON.parseObject(realWeather, MjRealWeatherBean.DataBean.ConditionBean.class);
             Mj24WeatherBean.DataBean dataBean = JSON.parseObject(hours24, Mj24WeatherBean.DataBean.class);
+            if (conditionBean!=null&dataBean != null) {
             Mj24WeatherBean.DataBean.HourlyBean hourlyBean = dataBean.getHourly().get(0);
             tv_det_wea.setText(hourlyBean.getCondition());
             tv_det_title.setText(WeatherUtils.addTemSymbol2(hourlyBean.getCondition()));
             tv_det_team.setText(lowAndHigh);
-            tv_sun_up.setText("日出："+conditionBean.getSunRise().substring(10,conditionBean.getSunRise().length()).substring(0,6));
+            tv_sun_up.setText("日出："+conditionBean.getSunRise().substring(10).substring(0,6));
             tv_sun_down.setText("日落："+conditionBean.getSunSet().substring(10,conditionBean.getSunRise().length()).substring(0,6));
 
 
@@ -112,8 +113,6 @@ public class DayDetailsActivity extends BaseMainActivity {
             } else {
                 iv_det_wea.setImageResource(WeatherUtils.selectNightIcon(hourlyBean.getIconNight()).get(Contents.MJ_LAGER_ICON));
             }
-
-
             List<DescribeBean.Des> desList=new ArrayList<>();
             desList.add(new DescribeBean.Des("紫外线",zwx));
             desList.add(new DescribeBean.Des("体感温度", WeatherUtils.addTemSymbol2(conditionBean.getRealFeel())));
@@ -136,17 +135,13 @@ public class DayDetailsActivity extends BaseMainActivity {
             rv_day24.setAdapter(mj24Adapter);
 
         }
+        }
 
     }
 
     @Override
     protected void intEvent() {
-        details_bar.setOnBackClickListener(new MyToolbar.OnBackClickListener() {
-            @Override
-            public void onBack() {
-                finish();
-            }
-        });
+        details_bar.setOnBackClickListener(() -> finish());
     }
 
     @Override

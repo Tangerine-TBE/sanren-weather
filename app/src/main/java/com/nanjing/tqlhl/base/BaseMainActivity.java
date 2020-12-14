@@ -21,6 +21,7 @@ import com.feisukj.base.widget.loaddialog.LoadingDialog;
 import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.SpUtil;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.List;
 
@@ -163,13 +164,13 @@ public abstract class BaseMainActivity extends FragmentActivity {
     @Override
     protected void onPause() {
         super.onPause();
-       // MobclickAgent.onPause(this);
+       MobclickAgent.onPause(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-    //   MobclickAgent.onResume(this);
+      MobclickAgent.onResume(this);
         SharedPreferences no_back_sp = BaseApplication.getAppContext().getSharedPreferences(Contents.NO_BACK_SP, MODE_PRIVATE);
         boolean no_back = no_back_sp.getBoolean(Contents.NO_BACK, false);
         if (no_back) {

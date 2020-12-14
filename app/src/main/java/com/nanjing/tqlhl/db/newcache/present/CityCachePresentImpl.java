@@ -67,9 +67,9 @@ public class CityCachePresentImpl implements ICityCachePresent {
                 if (TextUtils.isEmpty(cacheBean.getCity())) {
                     return;
                 }
-                List<CityCacheBean> city = LitePal.where(Contents.CITY+"=?", cacheBean.getCity()).find(CityCacheBean.class);
+                List<CityCacheBean> city = LitePal.where("city=?", cacheBean.getCity()).find(CityCacheBean.class);
                 if (city.size() == 1) {
-                    cacheBean.updateAll(Contents.CITY+"=?", cacheBean.getCity());
+                    cacheBean.updateAll("city=?", cacheBean.getCity());
                 } else if (city.size() == 0) {
                     cacheBean.save();
                     mScroll = false;
@@ -97,7 +97,7 @@ public class CityCachePresentImpl implements ICityCachePresent {
             @Override
             public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
                 mIsDelete = false;
-                int i = LitePal.deleteAll(CityCacheBean.class, Contents.CITY+"=?", city);
+                int i = LitePal.deleteAll(CityCacheBean.class, "city=?", city);
                 if (i > 0) {
                     mIsDelete = true;
                     queryCityCache();
@@ -125,7 +125,7 @@ public class CityCachePresentImpl implements ICityCachePresent {
                 if (TextUtils.isEmpty(cacheBean.getCity())) {
                     return;
                 }
-                cacheBean.updateAll(Contents.CITY+"=?", cacheBean.getCity());
+                cacheBean.updateAll("city=?", cacheBean.getCity());
             }
         }).subscribeOn(Schedulers.io()).subscribe();
     }
@@ -140,13 +140,13 @@ public class CityCachePresentImpl implements ICityCachePresent {
                     return;
                 }
                 try {
-                List<CityCacheBean> cities = LitePal.where(Contents.CITY+"=?", cacheBean.getCity()).find(CityCacheBean.class);
+                List<CityCacheBean> cities = LitePal.where("city=?", cacheBean.getCity()).find(CityCacheBean.class);
                 if (cities.size() == 1) {
                     CityCacheBean cityCacheBean = new CityCacheBean();
                     cityCacheBean.setCity(lastCity);
                     cityCacheBean.setLongitude(log);
                     cityCacheBean.setLatitude(lat);
-                    cityCacheBean.updateAll(Contents.CITY+"=?", cacheBean.getCity());
+                    cityCacheBean.updateAll("city=?", cacheBean.getCity());
 
                 }
 

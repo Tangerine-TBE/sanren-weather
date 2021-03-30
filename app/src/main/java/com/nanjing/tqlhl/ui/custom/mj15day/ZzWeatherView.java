@@ -437,64 +437,65 @@ public class ZzWeatherView extends HorizontalScrollView {
     }
 
     public void setList(final List<WeatherModel> list) {
-        removeAllViews();
-        mLlRoot.removeAllViews();
-        this.list = list;
-        int screenWidth = getScreenWidth();
-        int maxDay = getMaxDayTemp(list);
-        int maxNight = getMaxNightTemp(list);
-        int minDay = getMinDayTemp(list);
-        int minNight = getMinNightTemp(list);
-        int max = maxDay > maxNight ? maxDay : maxNight;
-        int min = minDay < minNight ? minDay : minNight;
+        if (list != null) {
+            removeAllViews();
+            mLlRoot.removeAllViews();
+            this.list = list;
+            int screenWidth = getScreenWidth();
+            int maxDay = getMaxDayTemp(list);
+            int maxNight = getMaxNightTemp(list);
+            int minDay = getMinDayTemp(list);
+            int minNight = getMinNightTemp(list);
+            int max = maxDay > maxNight ? maxDay : maxNight;
+            int min = minDay < minNight ? minDay : minNight;
 
 
-        for (int i = 0; i < list.size(); i++) {
-            WeatherModel model = list.get(i);
-            mItemView = new WeatherItemView(getContext());
-            mItemView.setMaxTemp(max);
-            mItemView.setMinTemp(min);
-            mItemView.setDate(model.getDate());
-            mItemView.setWeek(model.getWeek());
-            mItemView.setDayTemp(model.getDayTemp());
-            mItemView.setDayWeather(model.getDayWeather());
-            if (model.getDayPic() == 0) {
-                if (model.getDayWeather() != null){
-                    mItemView.setDayImg(PicUtil.getDayWeatherPic(model.getDayWeather()));
-                }
-            } else {
-                mItemView.setDayImg(model.getDayPic());
-            }
-            mItemView.setNightWeather(model.getNightWeather());
-            mItemView.setNightTemp(model.getNightTemp());
-            if (model.getNightPic() == 0) {
-                if (model.getNightWeather() != null){
-                    mItemView.setNightImg(PicUtil.getNightWeatherPic(model.getNightWeather()));
-                }
-            } else {
-                mItemView.setNightImg(model.getNightPic());
-            }
-            mItemView.setWindOri(model.getWindOrientation());
-            mItemView.setWindLevel(model.getWindLevel());
-            mItemView.setAirLevel(model.getAirLevel());
-            mItemView.setLayoutParams(new LinearLayout.LayoutParams(screenWidth / columnNumber, ViewGroup.LayoutParams.WRAP_CONTENT));
-            mItemView.setClickable(true);
-            final int finalI = i;
-            mItemView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (weatherItemClickListener != null) {
-
-                       weatherItemClickListener.onItemClick(mItemView, finalI, list.get(finalI));
-
+            for (int i = 0; i < list.size(); i++) {
+                WeatherModel model = list.get(i);
+                mItemView = new WeatherItemView(getContext());
+                mItemView.setMaxTemp(max);
+                mItemView.setMinTemp(min);
+                mItemView.setDate(model.getDate());
+                mItemView.setWeek(model.getWeek());
+                mItemView.setDayTemp(model.getDayTemp());
+                mItemView.setDayWeather(model.getDayWeather());
+                if (model.getDayPic() == 0) {
+                    if (model.getDayWeather() != null){
+                        mItemView.setDayImg(PicUtil.getDayWeatherPic(model.getDayWeather()));
                     }
+                } else {
+                    mItemView.setDayImg(model.getDayPic());
                 }
-            });
+                mItemView.setNightWeather(model.getNightWeather());
+                mItemView.setNightTemp(model.getNightTemp());
+                if (model.getNightPic() == 0) {
+                    if (model.getNightWeather() != null){
+                        mItemView.setNightImg(PicUtil.getNightWeatherPic(model.getNightWeather()));
+                    }
+                } else {
+                    mItemView.setNightImg(model.getNightPic());
+                }
+                mItemView.setWindOri(model.getWindOrientation());
+                mItemView.setWindLevel(model.getWindLevel());
+                mItemView.setAirLevel(model.getAirLevel());
+                mItemView.setLayoutParams(new LinearLayout.LayoutParams(screenWidth / columnNumber, ViewGroup.LayoutParams.WRAP_CONTENT));
+                mItemView.setClickable(true);
+                final int finalI = i;
+                mItemView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (weatherItemClickListener != null) {
 
-            mLlRoot.addView(mItemView);
+                            weatherItemClickListener.onItemClick(mItemView, finalI, list.get(finalI));
+
+                        }
+                    }
+                });
+
+                mLlRoot.addView(mItemView);
+            }
+            addView(mLlRoot);
         }
-        addView(mLlRoot);
-
     }
 
     public void setColumnNumber(int num) throws Exception {

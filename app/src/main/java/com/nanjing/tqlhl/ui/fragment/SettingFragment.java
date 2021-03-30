@@ -243,7 +243,9 @@ public class SettingFragment extends BaseFragment implements SettingAdapter.OnIt
                 break;
             case 5:
                 if (mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN, false)) {
-                    mLogout.show();
+                    if (!mActivity.isFinishing()) {
+                        mLogout.show();
+                    }
                 } else {
                     RxToast.warning("您还没有登录！");
                 }

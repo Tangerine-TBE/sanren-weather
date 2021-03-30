@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.nanjing.tqlhl.R;
+import com.nanjing.tqlhl.utils.SpUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +25,7 @@ public abstract class BaseFragment extends Fragment {
     private View mSuccessView;
     private View mLoadingView;
     private View mErrorView;
-
+    protected SpUtils mSpUtils=SpUtils.getInstance();
     @BindView(R.id.home_bg)
     ImageView mErrorVw;
 

@@ -13,7 +13,8 @@ public class Contents {
     public static final String MJ_Day = "mj_day";
     public static final String MJ_Night = "mj_night";
 
-
+    //---------------------SP------------------
+    public static final String  SP_CACHE_TIME="SP_CACHE_TIME";
 
 
     //黄历key

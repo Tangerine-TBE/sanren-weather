@@ -1,6 +1,5 @@
 package com.example.module_tool.base;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +21,7 @@ public class BaseBackstage {
     private static int mShowTime=1000;
 
 
-    private static boolean isAppOnForeground(Activity activity) {
+    private static boolean isAppOnForeground(Context activity) {
         // Returns a list of application processes that are running on the
         // device
         ActivityManager activityManager = (ActivityManager) activity.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
@@ -42,13 +41,12 @@ public class BaseBackstage {
     }
 
 
-    public static void setStop(Activity activity) {
+    public static void setStop(Context activity) {
         AdBean.DataBean adState = SpUtil.getAdState();
         if (adState != null) {
             AdBean.DataBean.StartPageBean.SpreadScreenBean spread_screen = adState.getStart_page().getSpread_screen();
             int times = spread_screen.getTimes();
             mShowTime=times*1000;
-
 
             if (!isAppOnForeground(activity)) {
                 mStart = new CountDownTimer(mShowTime, 1000) {
@@ -66,7 +64,7 @@ public class BaseBackstage {
     }
 
 
-    public static void setBackstage(Activity context) {
+    public static void setBackstage(Context context) {
         SharedPreferences no_back_sp = BaseApplication.getApplication().getSharedPreferences(Contents.NO_BACK_SP, context.MODE_PRIVATE);
         boolean no_back = no_back_sp.getBoolean(Contents.NO_BACK, false);
         if (no_back) {
@@ -78,7 +76,7 @@ public class BaseBackstage {
                         if (adState.getStart_page().getSpread_screen().isStatus()) {
                             if (isShow) {
                                 Intent intent = new Intent(context, BackActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 context.startActivity(intent);
                             }
                             if (mStart != null) {

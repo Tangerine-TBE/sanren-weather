@@ -36,7 +36,7 @@ import com.nanjing.tqlhl.utils.DateUtil;
 import com.nanjing.tqlhl.utils.GaoDeHelper;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
-import com.nanjing.tqlhl.utils.TTSUtility;
+import com.nanjing.tqlhl.utils.SpeakUtil;
 import com.nanjing.tqlhl.utils.WeatherUtils;
 import com.tamsiree.rxkit.view.RxToast;
 
@@ -91,6 +91,8 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
     private List<CityCacheBean> mCityList;
     private String mCity;
     private MyReceiver mMyReceiver;
+    private AnimationDrawable mDrawable;
+
     @Override
     public int getChildLayout() {
         return R.layout.activity_home;
@@ -202,31 +204,28 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
         });
 
         //语音播报
-        iv_report.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mCityAdapter.getInstantFragment() instanceof CurrentCityFragment) {
-                    CurrentCityFragment fragment = (CurrentCityFragment) mCityAdapter.getInstantFragment();
-
+        iv_report.setOnClickListener(view -> {
+            if (mCityAdapter.getInstantFragment() instanceof CurrentCityFragment) {
+                CurrentCityFragment fragment = (CurrentCityFragment) mCityAdapter.getInstantFragment();
+                if (mCityList != null) {
                     String report=mCityList.get(mPosition).getCity()+",今天天气%s,气温%s到%s摄氏度";
-                TTSUtility ttsUtility = TTSUtility.getInstance(getActivity());
-                ttsUtility .speaking(String.format(report,mCityList.get(mPosition).getWea(), fragment.mTempNight,fragment.mTempDay));
-                AnimationDrawable drawable = (AnimationDrawable) iv_report.getDrawable();
-                ttsUtility.setOnSpeechListener(new TTSUtility.OnSpeechListener() {
-                    @Override
-                    public void onStart() {
-                        drawable.start();
-                    }
+                   SpeakUtil.INSTANCE.speakText(String.format(report,mCityList.get(mPosition).getWea(), fragment.mTempNight,fragment.mTempDay));
+                    mDrawable = (AnimationDrawable) iv_report.getDrawable();
+                    SpeakUtil.INSTANCE.setOnSpeechListener(new SpeakUtil.OnSpeechListener() {
+                        @Override
+                        public void onStart() {
+                            mDrawable.start();
+                        }
 
-                    @Override
-                    public void onStop() {
-                        drawable.selectDrawable(0);
-                        drawable.stop();
+                        @Override
+                        public void onStop() {
+                            mDrawable.selectDrawable(0);
+                            mDrawable.stop();
 
-                    }
-                });
-            }
-            }
+                        }
+                    });
+                }
+        }
         });
     }
 

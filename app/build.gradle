@@ -11,8 +11,8 @@ android {
         applicationId "com.sanren.weather"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 10003
-        versionName "1.3"
+        versionCode 10005
+        versionName "1.5"
         flavorDimensions "versionCode"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -72,14 +72,14 @@ android {
     }
 
     //    只在打包提测时改apk文件名，开发时记得注释掉
-    applicationVariants.all { variant ->
+/*    applicationVariants.all { variant ->
                variant.getPackageApplication().outputDirectory = new File("F:/天气通天气预报")
               variant.outputs.all {
                     outputFileName = "${variant.productFlavors[0].manifestPlaceholders.get("app_name_channel")}" +
                           "_${variant.productFlavors[0].name}" +
                          "_${variant.versionName}.apk"
              }
-        }
+        }*/
 
     productFlavors {
 
@@ -90,7 +90,7 @@ android {
         }
         _lenovo {
             manifestPlaceholders = [
-                    app_name_channel: "天气预报",
+                    app_name_channel: "天气通天气预报",
                     CHANNEL_VALUE:"_lenovo"]
         }
         _oppo {
@@ -111,7 +111,7 @@ android {
 
             
             manifestPlaceholders = [
-                    app_name_channel: "天气预报",
+                    app_name_channel: "天气通天气预报",
                     CHANNEL_VALUE:"_360"]
         }
         _xiaomi {

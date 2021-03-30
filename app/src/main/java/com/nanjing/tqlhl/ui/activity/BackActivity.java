@@ -78,7 +78,7 @@ public class BackActivity extends BaseMainActivity {
     }
 
     private void showTXBackAd() {
-        mTxSplashAd = new TXSplashAd(this, mTxAppKey, mTxKaiPingKey, mAdContainer,false,HomeActivity.class);
+        mTxSplashAd = new TXSplashAd(this, mTxAppKey, mTxKaiPingKey, mAdContainer,false,MainActivity.class);
         mTxSplashAd.showAd();
         mTxSplashAd.setOnShowError(new IShowAdCallback() {
             @Override
@@ -94,7 +94,7 @@ public class BackActivity extends BaseMainActivity {
     }
 
     private void showBackTTAd() {
-        mTtSplashAd = new TTSplashAd(this, mTtKaiPingKey, mAdContainer,false,HomeActivity.class);
+        mTtSplashAd = new TTSplashAd(this, mTtKaiPingKey, mAdContainer,false,MainActivity.class);
         mTtSplashAd.showAd();
         mTtSplashAd.setOnShowError(new IShowAdCallback() {
             @Override

@@ -69,14 +69,12 @@
         <activity
             android:name="com.nanjing.tqlhl.ui.activity.SettingActivity"
             android:launchMode="singleTask"></activity>
-        <activity android:name="com.nanjing.tqlhl.base.BaseMainActivity" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.AirActivity"  android:launchMode="singleTop" />
-        <activity android:name="com.nanjing.tqlhl.ui.activity.HomeActivity" android:launchMode="singleTask"/>
         <activity android:name="com.nanjing.tqlhl.ui.activity.ToolActivity"  android:launchMode="singleTop" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.VipActivity"  />
         <activity android:name="com.nanjing.tqlhl.ui.activity.DayDetailsActivity"  />
         <activity android:name="com.nanjing.tqlhl.ui.activity.FirstLocationActivity" android:launchMode="singleTop" android:theme="@style/DefaultCityPickerTheme"  />
-        <activity android:name=".ui.activity.MainActivity" android:launchMode="singleTask" android:theme="@style/DefaultCityPickerTheme" />
+        <activity android:name=".ui.activity.MainActivity" android:launchMode="singleTop" android:theme="@style/DefaultCityPickerTheme" />
         <activity android:name=".ui.activity.HuangLiActivity" android:launchMode="singleTop"/>
         <activity android:name=".ui.activity.Day15Activity" android:launchMode="singleTop"/>
 

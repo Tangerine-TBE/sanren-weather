@@ -2,7 +2,9 @@ package com.nanjing.tqlhl.ui.activity;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.base.BaseMainActivity;
 import com.nanjing.tqlhl.model.bean.RegisterBean;
 import com.nanjing.tqlhl.presenter.Impl.FindPwdPresentImpl;
@@ -12,7 +14,6 @@ import com.nanjing.tqlhl.utils.Md5Util;
 import com.nanjing.tqlhl.view.IFindPwdCallback;
 import com.tamsiree.rxkit.view.RxToast;
 import com.tamsiree.rxui.view.dialog.RxDialogLoading;
-import com.nanjing.tqlhl.R;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -25,6 +26,8 @@ public class ChangePwdActivity extends BaseMainActivity implements IFindPwdCallb
     @BindView(R.id.iv_bar_back)
     ImageView iv_bar_back;
 
+    @BindView(R.id.tv_bar_title)
+    TextView tv_bar_title;
 
     @BindView(R.id.find_pwd_view)
     LoginView mFindPwdView;
@@ -41,7 +44,7 @@ public class ChangePwdActivity extends BaseMainActivity implements IFindPwdCallb
 
     @Override
     protected void intView() {
-
+        tv_bar_title.setText(getString(R.string.find_word_tx));
         mFindPwdView.setLoginBtText(getString(R.string.find_word_tx));
     }
 

@@ -62,6 +62,9 @@ public class LoginActivity extends BaseMainActivity implements ILoginCallback, I
     @BindView(R.id.change_pwd)
     TextView mChange;
 
+    @BindView(R.id.tv_bar_title)
+    TextView tv_bar_title;
+
 
     @BindView(R.id.login_delete)
     ImageView mNumberDel;
@@ -122,6 +125,8 @@ public class LoginActivity extends BaseMainActivity implements ILoginCallback, I
 
     @Override
     protected void intView() {
+
+        tv_bar_title.setText("登录");
 
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) login_bar.getLayoutParams();
         layoutParams.topMargin= MyStatusBarUtil.getStatusBarHeight(this);

@@ -5,8 +5,6 @@ import android.os.Handler;
 
 import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.example.module_ad.advertisement.TTAdManagerHolder;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechUtility;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.PackageUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
@@ -61,13 +59,13 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
         //穿山甲广告
         TTAdManagerHolder.init(getApplicationContext());
 
-        //科大
-        SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID + "=5f22b05a");
+
 
 
 
         sContext=getApplicationContext();
         sHandler=new Handler();
+
 
 
 

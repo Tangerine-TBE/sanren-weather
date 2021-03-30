@@ -3,8 +3,10 @@ package com.nanjing.tqlhl.ui.activity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.module_ad.utils.LogUtils;
+import com.nanjing.tqlhl.R;
 import com.nanjing.tqlhl.base.BaseMainActivity;
 import com.nanjing.tqlhl.model.bean.LoginBean;
 import com.nanjing.tqlhl.model.bean.RegisterBean;
@@ -20,7 +22,6 @@ import com.nanjing.tqlhl.view.ILoginCallback;
 import com.nanjing.tqlhl.view.IRegisterCallback;
 import com.tamsiree.rxkit.view.RxToast;
 import com.tamsiree.rxui.view.dialog.RxDialogLoading;
-import com.nanjing.tqlhl.R;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -31,7 +32,8 @@ import butterknife.BindView;
 
 public class RegisterActivity extends BaseMainActivity implements IRegisterCallback, ILoginCallback {
 
-
+    @BindView(R.id.tv_bar_title)
+    TextView tv_bar_title;
 
     @BindView(R.id.iv_bar_back)
     ImageView iv_bar_back;
@@ -53,6 +55,7 @@ public class RegisterActivity extends BaseMainActivity implements IRegisterCallb
 
     @Override
     protected void intView() {
+        tv_bar_title.setText("注册");
 
         mRxDialogLoading = new RxDialogLoading(this);
     }

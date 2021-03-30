@@ -1,29 +1,17 @@
 package com.nanjing.tqlhl.base;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.example.module_ad.activity.BackActivity;
-import com.example.module_ad.bean.AdBean;
-import com.example.module_ad.utils.CommonUtil;
-import com.example.module_ad.utils.LogUtils;
 import com.example.module_ad.utils.MyStatusBarUtil;
+import com.example.module_tool.base.BaseBackstage;
 import com.feisukj.base.widget.loaddialog.LoadingDialog;
 import com.nanjing.tqlhl.R;
-import com.nanjing.tqlhl.utils.Contents;
-import com.nanjing.tqlhl.utils.SpUtil;
 import com.umeng.analytics.MobclickAgent;
-
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -31,10 +19,7 @@ import butterknife.Unbinder;
 public abstract class BaseMainActivity extends FragmentActivity {
 
     private Unbinder mUnbinder;
-    private boolean isShow=false;
-    private CountDownTimer mStart;
     private LoadingDialog loadingDialog;
-    private int mShowTime=1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,87 +101,19 @@ public abstract class BaseMainActivity extends FragmentActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        AdBean.DataBean adState = SpUtil.getAdState();
-        if (adState != null) {
-            AdBean.DataBean.StartPageBean.SpreadScreenBean spread_screen = adState.getStart_page().getSpread_screen();
-            int times = spread_screen.getTimes();
-            mShowTime=times*1000;
-            LogUtils.i(BaseMainActivity.this,"onStop: --------------------->"+mShowTime);
-
-            if (!isAppOnForeground()) {
-                mStart = new CountDownTimer(mShowTime, 1000) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        LogUtils.i(BaseMainActivity.this,mStart+"CountDownTimer: --------------------->"+millisUntilFinished / 1000);
-                    }
-                    @Override
-                    public void onFinish() {
-                        isShow = true;
-                    }
-                }.start();
-            }
-        }
-
-    }
-
-    public boolean isAppOnForeground() {
-        // Returns a list of application processes that are running on the
-        // device
-        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
-        String packageName = getApplicationContext().getPackageName();
-        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
-                .getRunningAppProcesses();
-        if (appProcesses == null)
-            return false;
-        for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-            // The name of the process that this object is associated with.
-            if (appProcess.processName.equals(packageName) && appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
-                LogUtils.i(this,": --------------------->在后台运行");
-                return true;
-            }
-        }
-        return false;
-    }
 
     @Override
     protected void onPause() {
         super.onPause();
        MobclickAgent.onPause(this);
+        BaseBackstage.setStop(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
       MobclickAgent.onResume(this);
-        SharedPreferences no_back_sp = BaseApplication.getAppContext().getSharedPreferences(Contents.NO_BACK_SP, MODE_PRIVATE);
-        boolean no_back = no_back_sp.getBoolean(Contents.NO_BACK, false);
-        if (no_back) {
-        }else {
-            if (CommonUtil.isNetworkAvailable(this)) {
-                AdBean.DataBean adState = SpUtil.getAdState();
-                if (adState != null ) {
-                    if (adState.getStart_page()!=null) {
-                        if (adState.getStart_page().getSpread_screen().isStatus()) {
-                            if (isShow) {
-                                LogUtils.i(this,"onResume: --------------------->"+ isShow);
-                                Intent intent = new Intent(this, BackActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }
-                            if (mStart != null) {
-                                mStart.cancel();
-                            }
-                            isShow=false;
-                        }
-                    }
-                    // TODO: 2020/7/17
-
-                }
-            }
-        }
+        BaseBackstage.setBackstage(this);
     }
 
     @Override

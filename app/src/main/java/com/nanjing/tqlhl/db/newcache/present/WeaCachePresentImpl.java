@@ -10,6 +10,7 @@ import com.nanjing.tqlhl.db.newcache.present.view.IWeaCallback;
 import org.litepal.LitePal;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -26,8 +27,10 @@ public class WeaCachePresentImpl implements IWeatherPresent {
 
     private static volatile WeaCachePresentImpl singleton = null;
     private boolean mIsDelete;
-
-    private WeaCachePresentImpl() {}
+    public HashSet<String> mList;
+    private WeaCachePresentImpl() {
+        mList=queryCityList();
+    }
 
     public static WeaCachePresentImpl getInstance() {
                 if (singleton == null) {
@@ -41,6 +44,17 @@ public class WeaCachePresentImpl implements IWeatherPresent {
         saveCache(weaCacheBean);
     }
 
+    private  HashSet<String> queryCityList(){
+        HashSet<String> list = new HashSet<>();
+        Observable.create(emitter -> {
+            List<WeaCacheBean> cacheBeanList = LitePal.findAll(WeaCacheBean.class);
+            for (WeaCacheBean weaCacheBean : cacheBeanList) {
+                list.add(weaCacheBean.getCity());
+            }
+        }).subscribeOn(Schedulers.io()).subscribe();
+
+        return list;
+    }
 
     private void saveCache(WeaCacheBean weaCacheBean) {
         Observable.create(new ObservableOnSubscribe<Object>() {
@@ -82,6 +96,7 @@ public class WeaCachePresentImpl implements IWeatherPresent {
                 }
                 else if(city.size()==0) {
                     weaCacheBean.save();
+                    mList.add(weaCacheBean.getCity());
                 }
                 LogUtils.i(WeaCachePresentImpl.this,"saveCache--------------------->"+city.size());
 
@@ -123,6 +138,7 @@ public class WeaCachePresentImpl implements IWeatherPresent {
                 int i = LitePal.deleteAll(WeaCacheBean.class, "city=?", city);
                 if (i > 0) {
                     mIsDelete = true;
+                    mList.remove(city);
                 } else {
                     mIsDelete =false;
                 }

@@ -1,6 +1,7 @@
 package com.nanjing.tqlhl.ui.activity;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Window;
@@ -12,13 +13,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.nanjing.tqlhl.R;
+import com.nanjing.tqlhl.base.BaseApplication;
 import com.nanjing.tqlhl.base.BaseFragment;
 import com.nanjing.tqlhl.base.BaseMainActivity;
 import com.nanjing.tqlhl.ui.custom.ExitPoPupWindow;
-import com.nanjing.tqlhl.ui.fragment.AirFragment;
-import com.nanjing.tqlhl.ui.fragment.CityMangerFragment;
 import com.nanjing.tqlhl.ui.fragment.HomeFragment;
-import com.nanjing.tqlhl.ui.fragment.HuangLiFragment;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
 
 import butterknife.BindView;
@@ -42,9 +41,7 @@ public class MainActivity extends BaseMainActivity {
 
 
     private HomeFragment mHomeFragment;
-    private AirFragment mAirFragment;
-    private HuangLiFragment mHuangLiFragment;
-    private CityMangerFragment mCityMangerFragment;
+
     private FragmentManager mFragmentManager;
 
 
@@ -59,35 +56,32 @@ public class MainActivity extends BaseMainActivity {
         mExitPoPupWindow = new ExitPoPupWindow(this);
         intBgAnimation();
         mHomeFragment = new HomeFragment();
-        mAirFragment = new AirFragment();
-        mHuangLiFragment = new HuangLiFragment();
-        mCityMangerFragment = new CityMangerFragment();
         mFragmentManager = getSupportFragmentManager();
         showFragment(mHomeFragment);
-
     }
 
 
 
+    @Override
+    protected void onResume() {
+        BaseApplication.getAppContext().getSharedPreferences("no_back_sp", Context.MODE_PRIVATE).edit().putBoolean("no_back",true).apply();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+       BaseApplication.getAppContext().getSharedPreferences("no_back_sp", Context.MODE_PRIVATE).edit().putBoolean("no_back",false).apply();
+    }
 
 
-    private BaseFragment mLastFragment=null;
+
     private void showFragment(BaseFragment baseFragment) {
-        if (mLastFragment==baseFragment) {
-            return;
-        }
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         if (!baseFragment.isAdded()) {
             transaction.add(R.id.main_container, baseFragment);
-        } else {
-            transaction.show(baseFragment);
         }
-        if (mLastFragment!=null) {
-            transaction.hide(mLastFragment);
-        }
-
-        mLastFragment=baseFragment;
-        transaction.commitAllowingStateLoss();
+        transaction.commit();
     }
 
     private void intBgAnimation() {

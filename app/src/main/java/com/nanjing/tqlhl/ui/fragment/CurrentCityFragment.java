@@ -56,6 +56,7 @@ import com.nanjing.tqlhl.utils.DateUtil;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
 import com.nanjing.tqlhl.utils.KtUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
+import com.nanjing.tqlhl.utils.UtilsKt;
 import com.nanjing.tqlhl.utils.WeatherUtils;
 import com.nanjing.tqlhl.view.IHuangLiCallback;
 import com.nanjing.tqlhl.view.IWeatherCallback;
@@ -69,6 +70,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -154,7 +156,7 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
         return currentCityFragment;
     }
 
-
+    private static final int REQUEST_NEW__DATA_TIME=10;
     @Override
     protected void intLoad() {
         Bundle arguments = getArguments();
@@ -162,16 +164,40 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
         mLongitude = arguments.getString(Contents.CURRENT_LONG);
         mLatitude =arguments.getString(Contents.CURRENT_LAT);
 
-        if (!CommonUtil.isNetworkAvailable(getActivity())) {
-            if (mWeaCachePresent != null) {
-                mWeaCachePresent.queryWeatherCache();
-                RxToast.warning(getResources().getString(R.string.connect_error));
-            }
+
+        if (!CommonUtil.isNetworkAvailable(getContext())) {
+            requestOldWeather();
+            RxToast.warning(getResources().getString(R.string.connect_error));
         } else {
-                getWeatherData(mLongitude,mLatitude);
+            long cacheTime = mSpUtils.getLong(Contents.SP_CACHE_TIME, 0L);
+            long cacheLastTime = UtilsKt.calLastedTime(new Date(), new Date(cacheTime));
+            if (cacheTime != 0L) {
+                if (cacheLastTime > REQUEST_NEW__DATA_TIME) {
+                    requestNewWeather();
+                } else {
+                    if (WeaCachePresentImpl.getInstance().mList.contains(mLocationCity)) {
+                        requestOldWeather();
+                        LogUtils.i(this, "-----rqbTime-----------requestOldWeather----------------"+cacheLastTime);
+                    } else {
+                        requestNewWeather();
+                        LogUtils.i(this, "-----rqbTime----------requestNewWeather-----------------"+cacheLastTime);
+                    }
+                }
+                LogUtils.i(this, "-----rqbTime---------------------------"+cacheLastTime);
+            } else {
 
+                requestNewWeather();
             }
+        }
 
+
+
+    }
+
+    private void requestOldWeather() {
+        if (mWeaCachePresent != null) {
+            mWeaCachePresent.queryWeatherCache();
+        }
     }
 
     @Override
@@ -183,7 +209,6 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
 
     public void onNestedScrollView() {
         mNestedScrollView.scrollTo(0, 0);
-
     }
 
     @Override
@@ -264,14 +289,14 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
 
 
     //请求天气数据
-    private void getWeatherData(String longitude, String latitude) {
+    private void requestNewWeather() {
         if (mWeatherPresent != null & mHuangLiPresent != null) {
-            mWeatherPresent.getRealTimeWeatherInfo(longitude, latitude);
-            mWeatherPresent.getHourWeatherInfo(longitude, latitude);
-            mWeatherPresent.getDayWeatherInfo(longitude, latitude);
-            mWeatherPresent.getAqiWeatherInfo(longitude, latitude);
-            mWeatherPresent.get5AqiWeatherInfo(longitude, latitude);
-            mWeatherPresent.getLifeWeatherInfo(longitude, latitude);
+            mWeatherPresent.getRealTimeWeatherInfo(mLongitude, mLatitude);
+            mWeatherPresent.getHourWeatherInfo(mLongitude, mLatitude);
+            mWeatherPresent.getDayWeatherInfo(mLongitude, mLatitude);
+            mWeatherPresent.getAqiWeatherInfo(mLongitude, mLatitude);
+            mWeatherPresent.get5AqiWeatherInfo(mLongitude, mLatitude);
+            mWeatherPresent.getLifeWeatherInfo(mLongitude, mLatitude);
             mHuangLiPresent.getHuangLi();
         }
     }
@@ -363,6 +388,9 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
     @Override
     public void onLoadCacheList(List<WeaCacheBean> weaCacheBeanList) {
         if (weaCacheBeanList.size()!=0) {
+            if (mPos>=weaCacheBeanList.size()) {
+                return;
+            }
             if (mPos>=0) {
                 WeaCacheBean weaCacheBean = weaCacheBeanList.get(mPos);
             //实时天气
@@ -735,6 +763,7 @@ public class CurrentCityFragment extends BaseFragment implements IWeatherCallbac
             weaCacheBean.setHuangLi(gson.toJson(mHuangLiResult));
             if (mWeaCachePresent != null) {
                 mWeaCachePresent.saveWeatherCache(weaCacheBean);
+                mSpUtils.putLong(Contents.SP_CACHE_TIME,System.currentTimeMillis());
             }
 
     }

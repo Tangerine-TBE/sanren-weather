@@ -5,8 +5,10 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-    <include android:id="@+id/login_bar" layout="@layout/layout_toolbar_new"/>
 
+    <include
+        android:id="@+id/login_bar"
+        layout="@layout/layout_toolbar_new" />
 
     <TextView
         android:layout_marginTop="62dp"

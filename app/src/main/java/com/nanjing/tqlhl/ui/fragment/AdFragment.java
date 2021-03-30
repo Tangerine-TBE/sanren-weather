@@ -53,13 +53,13 @@ public class AdFragment extends BaseFragment implements IAdCallback {
             AdBean.DataBean data = SpUtil.getAdState();
             Map<String, String> adKey = SpUtil.getADKey();
             if (data != null || adKey != null) {
-                mSplashHelper.showAd();
                 isShow=true;
+                mSplashHelper.showAd();
             }
-
                 if (mAdPresent != null) {
                     mAdPresent.toRequestAd();
-            }
+                }
+
         } else {
             ImmersionUtil.startActivity(getContext(), MainActivity.class, true);
         }
@@ -94,7 +94,7 @@ public class AdFragment extends BaseFragment implements IAdCallback {
 
     @Override
     public void onLoadAdMsgError() {
-        ImmersionUtil.startActivity(getActivity(),MainActivity.class,true);
+       ImmersionUtil.startActivity(getActivity(),MainActivity.class,true);
     }
 
     @Override

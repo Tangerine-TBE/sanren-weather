@@ -92,8 +92,10 @@ public class TXSplashAd extends AdWatcher{
      */
     private void goToMainActivity(boolean b) {
         if (b) {
-            mActivity.startActivity(new Intent(mActivity,mClass));
+            mActivity.startActivity(new Intent(mActivity, mClass));
+        } else {
+            mActivity.finish();
         }
-        mActivity.finish();
+
     }
 }

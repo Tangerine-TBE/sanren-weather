@@ -30,4 +30,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api rootProject.ext.dependencies["RxTool"]
     api rootProject.ext.dependencies["fastjson"]
+
+    //友盟
+    api rootProject.ext.dependencies["umeng_common"]
+    api rootProject.ext.dependencies["umeng_asms"]
+    api rootProject.ext.dependencies["umeng_crash"]
 }

@@ -56,11 +56,12 @@ public class ExitPoPupWindow  extends PopupWindow {
             @Override
             public void onClick(View view) {
                 dismiss();
-             //   ActivityManager.exitApp(mActivity);
+
                 ActivityManager.removeAllActivity();
                 if (mFeedHelper != null) {
                     mFeedHelper.releaseAd();
                 }
+                System.exit(0);
             }
         });
 

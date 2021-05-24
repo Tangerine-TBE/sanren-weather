@@ -16,6 +16,9 @@ public class Contents {
     //---------------------SP------------------
     public static final String  SP_CACHE_TIME="SP_CACHE_TIME";
 
+    public static final String  SP_AGREE="SP_AGREE";
+
+
 
     //黄历key
     public static final String HUANG_LI_KEY="APPCODE dad203ec1a164924b728fd76d67429f7";

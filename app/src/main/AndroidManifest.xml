@@ -64,7 +64,6 @@
         <activity android:name="com.nanjing.tqlhl.ui.activity.AgreementActivity" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.PrivacyActivity" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.AboutActivity" />
-        <activity android:name="com.nanjing.tqlhl.ui.activity.UserFeedbackActivity" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.BackActivity" android:theme="@style/TransparentTheme"></activity>
         <activity
             android:name="com.nanjing.tqlhl.ui.activity.SettingActivity"

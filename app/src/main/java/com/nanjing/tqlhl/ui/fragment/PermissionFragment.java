@@ -25,7 +25,6 @@ import com.nanjing.tqlhl.presenter.Impl.AdPresentImpl;
 import com.nanjing.tqlhl.ui.activity.AgreementActivity;
 import com.nanjing.tqlhl.ui.activity.FirstLocationActivity;
 import com.nanjing.tqlhl.ui.activity.PrivacyActivity;
-import com.nanjing.tqlhl.ui.custom.SmoothCheckBox;
 import com.nanjing.tqlhl.utils.ColorUtil;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
@@ -38,6 +37,7 @@ import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.tamsiree.rxkit.view.RxToast;
+import com.umeng.commonsdk.UMConfigure;
 
 import java.util.List;
 
@@ -59,8 +59,8 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
 
     @BindView(R.id.bt_try)
     TextView mTry;
-    @BindView(R.id.checkBox)
-    SmoothCheckBox checkBox;
+
+
 
     @BindView(R.id.permission_container)
     FrameLayout mAdContainer;
@@ -153,8 +153,6 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
 
 
     private  String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION,
     };
@@ -182,30 +180,19 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
 
     @Override
     protected void intEvent() {
-        mGoMainBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkBox.isChecked()) {
-                    checkRuntimePermission();
-                } else {
-                    RxToast.normal("请确保您已同意本应用的隐私政策和用户协议");
-                }
-            }
-        });
+        mGoMainBt.setOnClickListener(view -> checkRuntimePermission());
 
-        mTry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkRuntimePermission();
-            }
-        });
-
-
+        mTry.setOnClickListener(view -> RxToast.showToast("您需要同意后才能继续使用"+PackageUtil.getAppMetaData(getActivity(),"APP_NAME")+"提供的服务"));
 
 
     }
 
     private void checkRuntimePermission() {
+        mSpUtils.putBoolean(Contents.SP_AGREE,true);
+
+        UMConfigure.init(getActivity(),UMConfigure.DEVICE_TYPE_PHONE,"5f96c7712065791705f99284");
+
+
         PermissionX.init(getActivity())
                 .permissions(permissions)
                 .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
@@ -226,9 +213,7 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
                 .request(new RequestCallback() {
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                        if (allGranted) {
-                            ImmersionUtil.startActivity(getActivity(), FirstLocationActivity.class,false);
-                        }
+                        ImmersionUtil.startActivity(getActivity(), FirstLocationActivity.class,false);
                     }
                 });
 

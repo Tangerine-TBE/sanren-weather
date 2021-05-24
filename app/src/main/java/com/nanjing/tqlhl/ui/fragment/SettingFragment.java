@@ -33,7 +33,6 @@ import com.nanjing.tqlhl.ui.activity.AgreementActivity;
 import com.nanjing.tqlhl.ui.activity.CityManageActivity;
 import com.nanjing.tqlhl.ui.activity.LoginActivity;
 import com.nanjing.tqlhl.ui.activity.PrivacyActivity;
-import com.nanjing.tqlhl.ui.activity.UserFeedbackActivity;
 import com.nanjing.tqlhl.ui.adapter.SettingAdapter;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.PackageUtil;
@@ -226,8 +225,8 @@ public class SettingFragment extends BaseFragment implements SettingAdapter.OnIt
                 startActivity(intent);
                 break;
             case 1:
-                intent.setClass(mActivity, UserFeedbackActivity.class);
-                startActivity(intent);
+              //  intent.setClass(mActivity, UserFeedbackActivity.class);
+               // startActivity(intent);
                 break;
             case 2:
                 intent.setClass(mActivity, AboutActivity.class);

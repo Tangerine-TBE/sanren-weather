@@ -119,10 +119,10 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         tv_bar_title.setVisibility(View.VISIBLE);
         tv_bar_title.setText("设置");
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_city, "城市管理"));
-        mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户反馈"));
+      //  mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户反馈"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_guanyu, "关于我们"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_banben, "隐私政策"));
-        //mSettingBeanList.add(new SettingBean(R.mipmap.setting_agreement, "用户协议"));
+        mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户协议"));
       // mSettingBeanList.add(new SettingBean(R.mipmap.icon_logout, "账号注销"));
 
         mRxDialogSureCancel = new RxDialogSureCancel(this);
@@ -196,17 +196,14 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
               intent.setClass(this, CityManageActivity.class);
                 break;
             case 1:
-                intent.setClass(this, UserFeedbackActivity.class);
-                break;
-            case 2:
                 intent.setClass(this, AboutActivity.class);
                 break;
-            case 3:
+            case 2:
                 intent.setClass(this, PrivacyActivity.class);
                 break;
-         /*   case 4:
+            case 3:
                 intent.setClass(this, AgreementActivity.class);
-                break;*/
+                break;
         }
         startActivity(intent);
     }

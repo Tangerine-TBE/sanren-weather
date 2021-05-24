@@ -38,6 +38,8 @@ public abstract class BaseFragment extends Fragment {
         NONE,LOADING,SUCCESS,ERROR
     }
 
+
+
     private ViewState mCurrentState=ViewState.NONE;
 
     @Nullable

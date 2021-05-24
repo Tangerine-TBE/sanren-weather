@@ -26,6 +26,7 @@
     <ImageView
         android:id="@+id/iv_bar_add"
         android:visibility="gone"
+
         android:layout_marginRight="20dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"

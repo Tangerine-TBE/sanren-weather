@@ -3,16 +3,17 @@ package com.nanjing.tqlhl.base;
 import android.content.Context;
 import android.os.Handler;
 
-import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.example.module_ad.advertisement.TTAdManagerHolder;
+import com.example.module_tool.utils.SPUtil;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.PackageUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
 import com.tamsiree.rxkit.RxTool;
 import com.umeng.commonsdk.UMConfigure;
 
-import org.json.JSONObject;
 import org.litepal.LitePal;
+
+import static com.nanjing.tqlhl.utils.Contents.PLATFORM_KEY;
 
 /**
  * @author: Administrator
@@ -39,23 +40,11 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
         SpUtils.init(this);
         LitePal.initialize(this);
         LitePal.getDatabase();
-        //用户反馈
-        FeedbackAPI.init(this,"25822454","7a8bb94331a5141dcea61ecb1056bbbd");
-        JSONObject jsonObject = new JSONObject();
-        try {
-
-            jsonObject.put("appId", Contents.APP_PACKAGE);
-            jsonObject.put("appName", Contents.AppNAME);
-            jsonObject.put(Contents.VER, PackageUtil.packageCode2(getApplicationContext()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        FeedbackAPI.setAppExtInfo(jsonObject);
-
         //友盟
-        UMConfigure.init(getApplicationContext(),UMConfigure.DEVICE_TYPE_PHONE,"5f96c7712065791705f99284");
-        UMConfigure.setLogEnabled(true);
-
+        UMConfigure.preInit(this,"5f96c7712065791705f99284", PackageUtil.getAppMetaData(this,PLATFORM_KEY));
+        if (SPUtil.getInstance().getBoolean(Contents.SP_AGREE)) {
+            UMConfigure.init(this,UMConfigure.DEVICE_TYPE_PHONE,"5f96c7712065791705f99284");
+        }
         //穿山甲广告
         TTAdManagerHolder.init(getApplicationContext());
 

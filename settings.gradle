@@ -4,4 +4,4 @@ include ':slideDateTimePicker'
 include ':module_tool'
 include ':citypicker'
 include ':app'
-rootProject.name = "WeatherOne"
+rootProject.name = "sanren-weather"

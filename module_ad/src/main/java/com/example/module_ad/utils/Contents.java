@@ -30,22 +30,8 @@ public class Contents {
     public static final String KGDT_MOBSDK_NATIVEKEY = "kGDTMobSDKNativeKey";
     public static final String KGDT_MOBSDK_JILIKEY = "kGDTMobSDKJiLiKey";
 
-
-    //储存用户信息
-    public static final String USER_INFO = "user_info";
-    public static final String USER_ID = "id";
-    public static final String USER_PWD = "pwd";
-    public static final String USER_IS_LOGIN = "isLogin";
-
-
-    //第一次启动
-    public static final String FIRST_LAUNCH = "firstOne";
-    public static final String IS_FIRST = "one";
-
-
     //存在当前位置信息
     public static final String CURRENT_CITY_SP = "currentCity";
-    public static final String CURRENT_CITY = "city";
 
     //是否开启后台信息
     public static final String NO_BACK_SP = "no_back_sp";

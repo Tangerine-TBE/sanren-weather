@@ -68,7 +68,6 @@ public class FirstLocationActivity extends BaseMainActivity implements OnPickLis
 
     @Override
     protected void intPresent() {
-
         mAddressPresent = PresentManager.getInstance().getAddressPresent();
         mAddressPresent.registerCallback(this);
 

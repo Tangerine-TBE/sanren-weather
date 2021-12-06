@@ -1,5 +1,7 @@
 package com.nanjing.tqlhl.utils;
 
+import android.widget.Toast;
+
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
@@ -30,9 +32,13 @@ public class GaoDeHelper {
 
 
     private GaoDeHelper() {
-        mLocationClient = new AMapLocationClient(BaseApplication.getAppContext());
+        try{
+            mLocationClient = new AMapLocationClient(BaseApplication.getAppContext());
+        }catch (Exception e){
+            Toast.makeText(BaseApplication.getAppContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            return;
+        }
         initLocation();
-
     }
 
     private void initLocation() {

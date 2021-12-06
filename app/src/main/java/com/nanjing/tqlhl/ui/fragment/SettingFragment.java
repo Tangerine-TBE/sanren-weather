@@ -109,10 +109,7 @@ public class SettingFragment extends BaseFragment implements SettingAdapter.OnIt
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_about, "关于我们"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_privacy, "隐私政策"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_agreement, "用户协议"));
-
-        if (PackageUtil.getAppMetaData(getActivity(), Contents.PLATFORM_KEY).equals("_oppo")) {
-            mSettingBeanList.add(new SettingBean(R.mipmap.icon_logout, "账号注销"));
-        }
+        mSettingBeanList.add(new SettingBean(R.mipmap.icon_logout, "账号注销"));
 
 
         mRxDialogSureCancel = new RxDialogSureCancel(mActivity);

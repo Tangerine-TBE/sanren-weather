@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentManager;
 
+import com.amap.api.location.AMapLocationClient;
 import com.example.module_ad.utils.MyStatusBarUtil;
 import com.nanjing.tqlhl.base.BaseApplication;
 import com.nanjing.tqlhl.base.BaseMainActivity;
@@ -38,7 +39,9 @@ public class BeginActivity extends BaseMainActivity {
         mFragmentManager = getSupportFragmentManager();
 
         boolean one= SpUtils.getInstance().getBoolean(Contents.IS_FIRST, true);
+        AMapLocationClient.updatePrivacyShow(this,true,true);
         if (!one) {
+            AMapLocationClient.updatePrivacyAgree(this,true);
                 mFragmentManager.beginTransaction().add(R.id.fragment_container, mAdFragment).commit();
             } else {
                 mFragmentManager.beginTransaction().add(R.id.fragment_container, mPermissionFragment).commit();

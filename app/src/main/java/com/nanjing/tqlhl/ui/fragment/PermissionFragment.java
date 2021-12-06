@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.alibaba.fastjson.JSON;
+import com.amap.api.location.AMapLocationClient;
 import com.example.module_ad.bean.AdBean;
 import com.example.module_ad.utils.LogUtils;
 import com.nanjing.tqlhl.R;
@@ -180,9 +181,12 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
 
     @Override
     protected void intEvent() {
-        mGoMainBt.setOnClickListener(view -> checkRuntimePermission());
+        mGoMainBt.setOnClickListener(view -> {
+            AMapLocationClient.updatePrivacyAgree(requireContext(),true);
+            checkRuntimePermission();
+        });
 
-        mTry.setOnClickListener(view -> RxToast.showToast("您需要同意后才能继续使用"+PackageUtil.getAppMetaData(getActivity(),"APP_NAME")+"提供的服务"));
+        mTry.setOnClickListener(view -> requireActivity().finish());
 
 
     }

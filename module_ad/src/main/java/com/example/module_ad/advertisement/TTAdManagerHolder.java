@@ -7,7 +7,6 @@ import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.bytedance.sdk.openadsdk.TTLocation;
 import com.example.module_ad.R;
 import com.example.module_ad.utils.Contents;
 import com.example.module_ad.utils.LogUtils;
@@ -69,11 +68,6 @@ public class TTAdManagerHolder {
                     @Override
                     public boolean isCanUseLocation() {
                         return false;
-                    }
-
-                    @Override
-                    public TTLocation getTTLocation() {
-                        return super.getTTLocation();
                     }
 
                     @Override

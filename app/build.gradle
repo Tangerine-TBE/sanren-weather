@@ -11,8 +11,8 @@ android {
         applicationId "com.sanren.weather"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 10009
-        versionName "1.9"
+        versionCode 10011
+        versionName "2.1"
         flavorDimensions "versionCode"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -72,17 +72,16 @@ android {
     }
 
     //    只在打包提测时改apk文件名，开发时记得注释掉
-    applicationVariants.all { variant ->
-               variant.getPackageApplication().outputDirectory = new File("F:/天气通天气预报")
-              variant.outputs.all {
-                    outputFileName = "${variant.productFlavors[0].manifestPlaceholders.get("app_name_channel")}" +
-                          "_${variant.productFlavors[0].name}" +
-                         "_${variant.versionName}.apk"
-             }
-        }
+//    applicationVariants.all { variant ->
+//               variant.getPackageApplication().outputDirectory = new File("F:/安装包/深圳市三人网络科技有限公司/三人天气预报/三人天气预报2.1")
+//              variant.outputs.all {
+//                    outputFileName = "${variant.productFlavors[0].manifestPlaceholders.get("app_name_channel")}" +
+//                          "_${variant.productFlavors[0].name}" +
+//                         "_${variant.versionName}.apk"
+//             }
+//        }
 
     productFlavors {
-
         _anzhi {
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
@@ -94,89 +93,52 @@ android {
                     CHANNEL_VALUE:"_lenovo"]
         }
         _oppo {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_oppo"]
         }
         _vivo {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_vivo"]
         }
         _360 {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_360"]
         }
         _xiaomi {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_xiaomi"]
         }
         _yingyongbao {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_yingyongbao"]
         }
         _baidu {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_baidu"]
         }
         _huawei {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_huawei"]
         }
         _meizu {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_meizu"]
         }
         _alibaba {
-
-            
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",
                     CHANNEL_VALUE:"_ali"]
         }
-        _google {
-
-            
-            manifestPlaceholders = [
-                    app_name_channel: "雨时天气",
-                    CHANNEL_VALUE:"_google"]
-        }
-
-        _samsung{
-            manifestPlaceholders = [
-                    app_name_channel: "雨时天气",
-                    CHANNEL_VALUE:" _samsung"]
-        }
-
-
-
     }
 }
-
-
-
 
 dependencies {
     api fileTree(dir: "libs", include: ["*.jar"])

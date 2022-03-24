@@ -163,10 +163,10 @@ dependencies {
 
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
-    api rootProject.ext.dependencies["retrofitAdapter"]
-    api rootProject.ext.dependencies["retrofitLog"]
-    api rootProject.ext.dependencies["retrofitScalars"]
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    api "com.squareup.okhttp3:logging-interceptor:3.4.1"
+    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
 
 
 

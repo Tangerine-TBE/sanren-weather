@@ -15,24 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/shape_permission_bg"
-                app:layout_constraintBottom_toTopOf="@+id/guideline17"
-                app:layout_constraintEnd_toStartOf="@+id/guideline45"
-                app:layout_constraintStart_toStartOf="@+id/guideline43"
-                app:layout_constraintTop_toTopOf="@+id/guideline46">
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/textView5"
-                style="@style/PermissionStyle_two"
-                android:text="判断设备信息，保障您的手机安全"
-                app:layout_constraintStart_toStartOf="@+id/guideline11"
-                app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline38"
                 android:layout_width="wrap_content"
@@ -75,102 +57,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/guideline45"
                 app:layout_constraintStart_toStartOf="@+id/guideline43"
                 app:layout_constraintTop_toTopOf="@+id/guideline44" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline45"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.94" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@mipmap/per_device"
-
-                app:layout_constraintStart_toStartOf="@+id/guideline52"
-                app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline46"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.28" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline47"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.45" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@mipmap/pe_store"
-                app:layout_constraintStart_toStartOf="@+id/guideline52"
-                app:layout_constraintTop_toTopOf="@+id/guideline47" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline48"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.56" />
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@mipmap/per_location"
-
-                app:layout_constraintStart_toStartOf="@+id/guideline52"
-                app:layout_constraintTop_toTopOf="@+id/guideline48" />
-
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/PermissionStyle_one"
-                android:text="设备信息"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/guideline10"
-                app:layout_constraintStart_toStartOf="@+id/guideline11" />
-
-            <TextView
-                android:id="@+id/textView6"
-                style="@style/PermissionStyle_one"
-                android:text="存储"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/guideline47"
-                app:layout_constraintStart_toStartOf="@+id/guideline11" />
-
-            <TextView
-                android:id="@+id/textView7"
-                style="@style/PermissionStyle_two"
-                android:text="储存城市天气信息，提高响应速度"
-
-                app:layout_constraintStart_toStartOf="@+id/guideline11"
-                app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
-            <TextView
-                android:id="@+id/textView8"
-                style="@style/PermissionStyle_one"
-                android:text="位置"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/guideline48"
-                app:layout_constraintStart_toStartOf="@+id/guideline11" />
-
-
-            <TextView
-                android:id="@+id/textView9"
-                style="@style/PermissionStyle_two"
-                android:text="准确定位当前城市，精准获取天气预报"
-
-                app:layout_constraintStart_toStartOf="@+id/guideline11"
-                app:layout_constraintTop_toTopOf="@+id/guideline16" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline50"
                 android:layout_width="wrap_content"
@@ -258,42 +150,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.28" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.37" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.48" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.59" />
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.67" />
-
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </FrameLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

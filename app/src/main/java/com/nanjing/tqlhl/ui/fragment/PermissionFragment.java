@@ -1,6 +1,5 @@
 package com.nanjing.tqlhl.ui.fragment;
 
-import android.Manifest;
 import android.content.Context;
 import android.os.Build;
 import android.text.SpannableStringBuilder;
@@ -31,16 +30,7 @@ import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.ImmersionUtil;
 import com.nanjing.tqlhl.utils.PackageUtil;
 import com.nanjing.tqlhl.view.IAdCallback;
-import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam;
-import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
-import com.permissionx.guolindev.callback.RequestCallback;
-import com.permissionx.guolindev.request.ExplainScope;
-import com.permissionx.guolindev.request.ForwardScope;
-import com.tamsiree.rxkit.view.RxToast;
 import com.umeng.commonsdk.UMConfigure;
-
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -91,8 +81,6 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
         mAgreementTv.setText(stringBuilder);
         //一定要记得设置这个方法  不是不起作用
         mAgreementTv.setMovementMethod(LinkMovementMethod.getInstance());
-
-
     }
 
     @Override
@@ -113,10 +101,6 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
             BaseApplication.getAppContext().getSharedPreferences(Contents.AD_INFO_SP, Context.MODE_PRIVATE).edit().putString(Contents.AD_INFO, ad).apply();
         }
     }
-
-
-
-
     @Override
     public void onLoadAdMsgError() {
      //  ImmersionUtil.startActivity(getContext(),FirstLocationActivity.class,true);
@@ -151,15 +135,6 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
         }
     }
 
-
-
-    private  String[] permissions = new String[]{
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-    };
-
-
-
     private void IsHaveNetWork() {
             toRequestAd();
     }
@@ -185,41 +160,13 @@ public class PermissionFragment extends BaseFragment implements IAdCallback {
             AMapLocationClient.updatePrivacyAgree(requireContext(),true);
             checkRuntimePermission();
         });
-
         mTry.setOnClickListener(view -> requireActivity().finish());
-
-
     }
 
     private void checkRuntimePermission() {
         mSpUtils.putBoolean(Contents.SP_AGREE,true);
-
         UMConfigure.init(getActivity(),UMConfigure.DEVICE_TYPE_PHONE,"5f96c7712065791705f99284");
-
-
-        PermissionX.init(getActivity())
-                .permissions(permissions)
-                .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
-                    @Override
-                    public void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest) {
-                        String msg="即将申请的权限是程序必须依赖的权限";
-                        scope.showRequestReasonDialog(deniedList,msg,"开启","取消");
-
-                    }
-                })
-                .onForwardToSettings(new ForwardToSettingsCallback() {
-                    @Override
-                    public void onForwardToSettings(ForwardScope scope, List<String> deniedList) {
-                        String msg="您需要去应用程序设置当中手动开启权限";
-                        scope.showForwardToSettingsDialog(deniedList,msg,"开启","取消");
-                    }
-                })
-                .request(new RequestCallback() {
-                    @Override
-                    public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                        ImmersionUtil.startActivity(getActivity(), FirstLocationActivity.class,false);
-                    }
-                });
+        ImmersionUtil.startActivity(getActivity(), FirstLocationActivity.class,false);
 
     }
 }

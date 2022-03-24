@@ -20,12 +20,6 @@ ext {
             //文件下载
             "filedownloader"       : "com.liulishuo.filedownloader:library:1.7.5",
 
-            //retrofit
-            "retrofit"             : "com.squareup.retrofit2:retrofit:2.6.3",
-            "retrofitConverter"    : "com.squareup.retrofit2:converter-gson:2.7.0",
-            "retrofitAdapter"      : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
-            "retrofitLog"      : "com.squareup.okhttp3:logging-interceptor:3.4.1",
-            "retrofitScalars"   :  'com.squareup.retrofit2:converter-scalars:2.3.0',
 
             //rxlifecycle
             "rxlifecycle"          : "com.trello.rxlifecycle2:rxlifecycle:2.1.0",

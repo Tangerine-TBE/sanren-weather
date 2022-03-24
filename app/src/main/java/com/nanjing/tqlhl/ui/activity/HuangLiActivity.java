@@ -131,8 +131,10 @@ public class HuangLiActivity extends BaseMainActivity {
         List<String> ji = null;
         if (resultBean.getJi().size() >= 9) {
             ji = resultBean.getJi().subList(2, 9);
-        } else {
+        } else if (resultBean.getJi().size() >= 2){
             ji = resultBean.getJi().subList(2, resultBean.getJi().size());
+        }else {
+            ji = resultBean.getJi();
         }
         for (String s : ji) {
             stringBuffer2.append(s + "  ");

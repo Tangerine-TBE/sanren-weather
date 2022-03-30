@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="19"
-6-->D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+6-->E:\project\weather-forecast-sanren\slideDateTimePicker\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="28" />
-7-->D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+7-->E:\project\weather-forecast-sanren\slideDateTimePicker\src\main\AndroidManifest.xml
 8
 9</manifest>

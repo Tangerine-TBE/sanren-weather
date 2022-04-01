@@ -8,11 +8,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.module_ad.advertisement.BanFeedHelper;
 import com.example.module_ad.utils.LogUtils;
 import com.nanjing.tqlhl.base.BaseMainActivity;
+import com.nanjing.tqlhl.caiyun.DailyWeather;
+import com.nanjing.tqlhl.caiyun.viewmodel.CaiyunViewModel;
 import com.nanjing.tqlhl.db.newcache.bean.CityCacheBean;
 import com.nanjing.tqlhl.db.newcache.bean.WeaCacheBean;
 import com.nanjing.tqlhl.db.newcache.present.CityCachePresentImpl;
@@ -216,14 +221,57 @@ public class CityManageActivity extends BaseMainActivity implements OnPickListen
 
     }
 
+    private CaiyunViewModel caiyunViewModel;
     @Override
     public void onLoadAddressSuccess(LocationBean addressBean) {
-        this.mAddress = addressBean;
         LogUtils.i(this, "-onLoadAddressSuccess*------------------------>" + addressBean.getLatitude() + "-------" + addressBean.getLatitude());
-        if (mWeatherPresent != null) {
-            mWeatherPresent.getHourWeatherInfo(addressBean.getLongitude() + "", addressBean.getLatitude() + "");
-            mWeatherPresent.getDayWeatherInfo(addressBean.getLongitude() + "", addressBean.getLatitude() + "");
+        this.mAddress = addressBean;
+        if (caiyunViewModel==null) {
+            caiyunViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
+                @NonNull
+                @Override
+                public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+                    try {
+                        return modelClass.newInstance();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+            }).get(CaiyunViewModel.class);
         }
+        caiyunViewModel.dailyWeather(addressBean.getLongitude() + "", addressBean.getLatitude() + "", dailyWeather -> {
+            DailyWeather.DailyNeedData dailyNeedData =dailyWeather.getNeedData().get(0);
+            String temMinMax=dailyNeedData.getMinTem()+"°/"+dailyNeedData.getMaxTem()+"°";
+            String sky=dailyNeedData.getSkyconDes();
+
+            if (!isFinishing()&&mCityCachePresent!=null) {
+                CityCacheBean cityCacheBean = new CityCacheBean();
+                String city = mAddress.getCity();
+                cityCacheBean.setCity(city);
+                cityCacheBean.setLongitude(mAddress.getLongitude() + "");
+                cityCacheBean.setLatitude(mAddress.getLatitude() + "");
+                cityCacheBean.setWea(sky);//设置当前天气现象
+                cityCacheBean.setWindy(dailyNeedData.getWindDirection()+"  "+dailyNeedData.getWindDegree());//东南风  一级
+                cityCacheBean.setLowHigh(temMinMax);
+                cityCacheBean.setSkyIcon(dailyNeedData.getSkyconIcon());
+//                isAdd = true;
+                //startActivity(new Intent(this,MainActivity.class).putExtra(Contents.GO_HOME,1));
+                caiyunViewModel.realtimeWeather(addressBean.getLongitude() + "", addressBean.getLatitude() + "",realTimeWeather -> {
+                    cityCacheBean.setTeam(realTimeWeather.getTemperature());//设置当前温度，21°
+                    mCityCachePresent.addCityCache(cityCacheBean);
+                    isAdd=true;
+                    return null;
+                },s->{
+                    RxToast.error(this, "没有网络，请重新再试").show();
+                    return null;
+                });
+            }
+            return null;
+        }, s -> {
+            RxToast.error(this, "没有网络，请重新再试").show();
+            return null;
+        });
 
     }
 
@@ -336,36 +384,12 @@ public class CityManageActivity extends BaseMainActivity implements OnPickListen
 
     }
 
-    private void saveCityList() {
-
-        if (mCityCachePresent != null & mResultBean24 != null & mResult15Bean != null) {
-            if (!isAdd) {
-                Mj24WeatherBean.DataBean.HourlyBean hourlyBean = mResultBean24.getData().getHourly().get(0);
-                Mj15DayWeatherBean.DataBean.ForecastBean forecastBean = mResult15Bean.getForecast().get(1);
-                CityCacheBean cityCacheBean = new CityCacheBean();
-                cityCacheBean.setCity(mAddress.getCity());
-                cityCacheBean.setLongitude(mAddress.getLongitude() + "");
-                cityCacheBean.setLatitude(mAddress.getLatitude() + "");
-                cityCacheBean.setTeam(WeatherUtils.addTemSymbol2(hourlyBean.getTemp()));
-                cityCacheBean.setWea(hourlyBean.getCondition());
-                cityCacheBean.setDayIcon(hourlyBean.getIconDay());
-                cityCacheBean.setNightIcon(hourlyBean.getIconNight());
-                cityCacheBean.setWindy(WeatherUtils.formatWindyDir(hourlyBean.getWindDir()) + "  " + WeatherUtils.winType(Double.parseDouble(hourlyBean.getWindSpeed()), true));
-                cityCacheBean.setLowHigh(WeatherUtils.addTemSymbol2(forecastBean.getTempNight()) + "/" +WeatherUtils.addTemSymbol2(forecastBean.getTempDay()) );
-                mCityCachePresent.addCityCache(cityCacheBean);
-                isAdd = true;
-
-            }
-        }
-    }
-
     private boolean isAdd = false;
 
     @Override
     public void onLoadDayWeatherData(Mj15DayWeatherBean.DataBean resultBean) {
         if (resultBean != null) {
             this.mResult15Bean = resultBean;
-            saveCityList();
 
         }
     }
@@ -374,7 +398,6 @@ public class CityManageActivity extends BaseMainActivity implements OnPickListen
     public void onLoadHourWeatherData(Mj24WeatherBean weatherBean) {
         if (weatherBean != null) {
             this.mResultBean24 = weatherBean;
-            saveCityList();
         }
     }
 

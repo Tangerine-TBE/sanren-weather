@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@mipmap/huangli_bg"
     android:layout_height="match_parent">
 
@@ -13,11 +14,6 @@
         android:id="@+id/rl_hl_include"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -241,7 +237,7 @@
 
                 <RelativeLayout
                     android:layout_marginRight="24dp"
-                    android:background="@drawable/shape_huangli_bg_three"
+                    tools:background="@drawable/shape_huangli_bg_three"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
@@ -252,7 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="星座"
+                        tools:text="星座"
                         android:textColor="#050505" />
 
                     <TextView
@@ -265,7 +261,7 @@
                         android:layout_marginTop="11dp"
                         android:gravity="center"
                         android:layout_marginBottom="28dp"
-                        android:text="生肖" />
+                        tools:text="生肖" />
 
                 </RelativeLayout>
 
@@ -303,6 +299,7 @@
 
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_marginTop="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -456,6 +453,7 @@
 
             <LinearLayout
                 android:padding="12.5dp"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView

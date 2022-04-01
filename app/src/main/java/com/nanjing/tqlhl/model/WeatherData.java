@@ -10,6 +10,7 @@ import com.nanjing.tqlhl.model.bean.MjRealWeatherBean;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.RetrofitManager;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import okhttp3.ResponseBody;
@@ -66,12 +67,7 @@ public class WeatherData {
 
 
     public void doRequestHl(Callback<HuangLiBean> callback) {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = (calendar.get(Calendar.MONTH))+1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        LogUtils.i(this,"---------->"+year+month+day);
-        mApihl.getHuangLi(Contents.HUANG_LI_KEY,day+"",month+"",year+"").enqueue(callback);
+        mApihl.getHuangLi(Contents.HUANG_LI_KEY,new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis())).enqueue(callback);
     }
 
 }

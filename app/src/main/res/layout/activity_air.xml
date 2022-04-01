@@ -10,8 +10,7 @@
         android:id="@+id/air_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="空气质量"
-        />
+        app:title="空气质量" />
 
 
     <androidx.core.widget.NestedScrollView
@@ -19,24 +18,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:layout_below="@id/air_toolbar"
-        >
+        android:layout_below="@id/air_toolbar">
 
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <FrameLayout
                 android:id="@+id/banner_container"
                 android:layout_width="match_parent"
                 android:visibility="gone"
                 android:layout_height="wrap_content"/>
-
-
             <ImageView
                 android:id="@+id/iv_aqi_icon"
-                android:layout_below="@+id/banner_container"
+                android:layout_below="@id/banner_container"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="15dp"
                 android:src="@mipmap/icon_aqi"
@@ -46,24 +41,24 @@
             <TextView
                 android:id="@+id/tv_aqi_hint"
                 android:text="当前空气质量"
-                android:layout_alignTop="@+id/iv_aqi_icon"
-                android:layout_alignBottom="@+id/iv_aqi_icon"
-                android:layout_toRightOf="@+id/iv_aqi_icon"
+                android:layout_alignTop="@id/iv_aqi_icon"
+                android:layout_alignBottom="@id/iv_aqi_icon"
+                android:layout_toRightOf="@id/iv_aqi_icon"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/tv_aqi_value"
-                    android:text="差"
-                    android:textColor="#FC6416"
-                    android:layout_alignBaseline="@+id/tv_aqi_hint"
-                    android:layout_toRightOf="@+id/tv_aqi_hint"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tv_aqi_value"
+                android:text="差"
+                android:textColor="#FC6416"
+                android:layout_alignBaseline="@id/tv_aqi_hint"
+                android:layout_toRightOf="@id/tv_aqi_hint"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
             <com.nanjing.tqlhl.ui.custom.AqiLineView
@@ -73,30 +68,293 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="25dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/iv_aqi_icon"
+                android:layout_below="@id/iv_aqi_icon"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"/>
 
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/air_container"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_below="@+id/av_line"
-                    android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:id="@+id/air_parent"
+                android:layout_below="@id/av_line"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never" />
-
+                    android:orientation="horizontal">
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:id="@+id/pm25Title"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="细颗粒物"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/pm25TitleDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/pm25Title"
+                                android:layout_alignStart="@id/pm25Title"
+                                android:layout_marginTop="7dp"
+                                android:text="PM2.5"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/pm25Value"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/pm25TitleDes"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/pm10Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="细颗粒物"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/pm10Des"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/pm10Title"
+                                android:layout_alignStart="@id/pm10Title"
+                                android:layout_marginTop="7dp"
+                                android:text="PM10"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/pm10Value"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/pm10Des"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/so2Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="二氧化硫"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/so2Des"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/so2Title"
+                                android:layout_alignStart="@id/so2Title"
+                                android:layout_marginTop="7dp"
+                                android:text="SO2"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/so2Value"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/so2Des"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/no2Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="二氧化氮"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/no2Des"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/no2Title"
+                                android:layout_alignStart="@id/no2Title"
+                                android:layout_marginTop="7dp"
+                                android:text="NO2"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/no2Value"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/no2Des"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/o3Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="臭氧"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/o3Des"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/o3Title"
+                                android:layout_alignStart="@id/o3Title"
+                                android:layout_marginTop="7dp"
+                                android:text="O3"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/o3Value"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/o3Des"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="102dp"
+                            android:layout_height="102dp">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/noTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="一氧化碳"
+                                android:textColor="#8D8D8D"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:id="@+id/noDes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/noTitle"
+                                android:layout_alignStart="@id/noTitle"
+                                android:layout_marginTop="7dp"
+                                android:text="CO"
+                                android:textColor="#8D8D8D"
+                                android:textSize="12sp" />
+                            <TextView
+                                android:id="@+id/noValue"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:layout_below="@id/noDes"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="12dp"
+                                android:textColor="#333333"
+                                android:text="1280" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
             <View
                 android:id="@+id/divider7"
-                android:layout_above="@+id/ll_day15_include"
+                android:layout_above="@id/ll_day15_include"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DBDBDB" />
-
             <LinearLayout
                 android:id="@+id/ll_day15_include"
-                android:layout_below="@+id/air_container"
+                android:layout_below="@id/air_parent"
                 android:orientation="vertical"
                 android:background="#FBFBFB"
                 android:layout_width="match_parent"
@@ -117,27 +375,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:overScrollMode="never"
-                        android:scrollbars="none"
-                        android:visibility="gone" />
+                        android:scrollbars="none"/>
 
                     <TextView
                         android:id="@+id/tv_future15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/weather15_view"
+                        android:layout_below="@id/weather15_view"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="19dp"
                         android:padding="11dp"
                         android:drawablePadding="5dp"
                         android:drawableRight="@mipmap/icon_day15_more"
-                        android:text="未来15天天气预报"
+                        android:text="未来5天天气预报"
                         android:textColor="@color/color_homeTextNormal" />
 
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_below="@+id/ll_day15_include"
+                    android:layout_below="@id/ll_day15_include"
                     android:layout_height="wrap_content">
                     <FrameLayout
                         android:layout_marginTop="4.5dp"

@@ -1,76 +1,20 @@
-package com.nanjing.tqlhl.model.bean;
+package com.nanjing.tqlhl.model.bean
 
-import java.util.List;
+import java.text.SimpleDateFormat
+import java.util.*
 
-public class HuangLiBean {
-
-
+class HuangLiBean {
     /**
-     * status : 0
+     * {status : 0
      * msg : ok
      * result : {"year":"2016","month":"10","day":"1","yangli":"公元2016年10月01日","nongli":"农历二〇一六年九月初一","star":"天枰座","taishen":"厨灶栖外正东","wuxing":"沙中土","chong":"冲（庚戌）狗","sha":"煞南","shengxiao":"猴","jiri":"天刑（黑道）危日","zhiri":"天刑（黑道凶日）","xiongshen":"月煞 月虚 四击 天刑","jishenyiqu":"母仓 六合 敬安","caishen":"西南","xishen":"西南","fushen":"正东","suici":["丙申年","丁酉月","丙辰日"],"yi":["订盟","纳采","祭祀","祈福","安香","出火","修造","动土","上梁","安门","起基","竖柱","上梁","定磉","开池","移徙","入宅","立券","破土"],"ji":["嫁娶","造庙","造桥","造船","作灶","安葬"],"eweek":"SATURDAY","emonth":"October","week":"六"}
+     * }
      */
+//    var reason = 0
+    var reason: String? = null
+    var result: ResultBean? = null
 
-    private int status;
-    private String msg;
-    private ResultBean result;
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public ResultBean getResult() {
-        return result;
-    }
-
-    public void setResult(ResultBean result) {
-        this.result = result;
-    }
-
-    public static class ResultBean {
-
-        @Override
-        public String toString() {
-            return "ResultBean{" +
-                    "year='" + year + '\'' +
-                    ", month='" + month + '\'' +
-                    ", day='" + day + '\'' +
-                    ", yangli='" + yangli + '\'' +
-                    ", nongli='" + nongli + '\'' +
-                    ", star='" + star + '\'' +
-                    ", taishen='" + taishen + '\'' +
-                    ", wuxing='" + wuxing + '\'' +
-                    ", chong='" + chong + '\'' +
-                    ", sha='" + sha + '\'' +
-                    ", shengxiao='" + shengxiao + '\'' +
-                    ", jiri='" + jiri + '\'' +
-                    ", zhiri='" + zhiri + '\'' +
-                    ", xiongshen='" + xiongshen + '\'' +
-                    ", jishenyiqu='" + jishenyiqu + '\'' +
-                    ", caishen='" + caishen + '\'' +
-                    ", xishen='" + xishen + '\'' +
-                    ", fushen='" + fushen + '\'' +
-                    ", eweek='" + eweek + '\'' +
-                    ", emonth='" + emonth + '\'' +
-                    ", week='" + week + '\'' +
-                    ", suici=" + suici +
-                    ", yi=" + yi +
-                    ", ji=" + ji +
-                    '}';
-        }
-
+    class ResultBean {
         /**
          * year : 2016
          * month : 10
@@ -98,221 +42,125 @@ public class HuangLiBean {
          * week : 六
          */
 
-        private String year;
-        private String month;
-        private String day;
-        private String yangli;
-        private String nongli;
-        private String star;
-        private String taishen;
-        private String wuxing;
-        private String chong;
-        private String sha;
-        private String shengxiao;
-        private String jiri;
-        private String zhiri;
-        private String xiongshen;
-        private String jishenyiqu;
-        private String caishen;
-        private String xishen;
-        private String fushen;
-        private String eweek;
-        private String emonth;
-        private String week;
-        private List<String> suici;
-        private List<String> yi;
-        private List<String> ji;
+        /**
+         * {
+        "reason": "successed",
+        "result": {
+        "id": "2416",
+        "yangli": "2016-10-01",
+        "yinli": "丙申(猴)年九月初一",
+        "wuxing": "沙中土 危执位",
+        "chongsha": "冲狗(庚戍)煞南",
+        "baiji": "丙不修灶必见灾殃 辰不哭泣必主重丧",
+        "jishen": "母仓 六合 敬安",
+        "yi": "订盟 纳采 祭祀 祈福 安香 出火 修造 动土 上梁 安门 起基 竖柱 上梁 定磉 开池 移徙 入宅 立券 破土",
+        "xiongshen": "月煞 月虚 四击 天刑",
+        "ji": "嫁娶 造庙 造桥 造船 作灶 安葬"
+        },
+        "error_code": 0
+        }
+         */
+//        var year: String? = null
+//        var month: String? = null
+//        var day: String? = null
+        var yangli: String? = null
+        var yinli: String? = null
+//        var star: String? = null
+//        var taishen: String? = null
+        var wuxing: String? = null
+        var chongsha: String? = null
+//        var sha: String? = null
+//        var shengxiao: String? = null
+//        var jiri: String? = null
+//        var zhiri: String? = null
+        var xiongshen: String? = null
+        var jishen: String? = null
+//        var caishen: String? = null
+//        var xishen: String? = null
+//        var fushen: String? = null
+//        var eweek: String? = null
+//        var emonth: String? = null
+//        var week: String? = null
+//        var suici: List<String>? = null
 
-        public String getYear() {
-            return year;
+        //["订盟","纳采","祭祀","祈福","安香","出火","修造","动土","上梁","安门","起基","竖柱","上梁","定磉","开池","移徙","入宅","立券","破土"]
+        //"订盟 纳采 祭祀 祈福 安香 出火 修造 动土 上梁 安门 起基 竖柱 上梁 定磉 开池 移徙 入宅 立券 破土"
+        var yi: String? = null
+        fun getYiList():List<String>{
+            return yi?.split(" ")?: emptyList()
         }
 
-        public void setYear(String year) {
-            this.year = year;
+        //["嫁娶","造庙","造桥","造船","作灶","安葬"]
+        //"嫁娶 造庙 造桥 造船 作灶 安葬"
+        var ji: String? = null
+        fun getJiList():List<String>{
+            return ji?.split(" ")?: emptyList()
         }
 
-        public String getMonth() {
-            return month;
+        companion object{
+            private val shengxiaoList = arrayOf("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪")
+            private val simpleDateFormat by lazy {
+                SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
+            }
         }
-
-        public void setMonth(String month) {
-            this.month = month;
+        fun getShengxiao():String{
+            return shengxiaoList.find {
+                yinli?.contains(it)==true
+            }?:"未知"
         }
-
-        public String getDay() {
-            return day;
+        fun getWeek():String{
+            return yangli?.let {
+                val cal=Calendar.getInstance()
+                val date=simpleDateFormat.parse(it)
+                if (date!=null) {
+                    cal.time = date
+                    when(cal.get(Calendar.DAY_OF_WEEK)){
+                        Calendar.SUNDAY->{
+                            "日"
+                        }
+                        Calendar.MONDAY->{
+                            "一"
+                        }
+                        Calendar.TUESDAY->{
+                            "二"
+                        }
+                        Calendar.WEDNESDAY->{
+                            "三"
+                        }
+                        Calendar.THURSDAY->{
+                            "四"
+                        }
+                        Calendar.FRIDAY->{
+                            "五"
+                        }
+                        Calendar.SATURDAY->{
+                            "六"
+                        }
+                        else->{
+                            "未知"
+                        }
+                    }
+                }else{
+                    null
+                }
+            }?:"未知"
         }
-
-        public void setDay(String day) {
-            this.day = day;
+        fun getDay():String{
+            return yangli?.let {
+                val cal=Calendar.getInstance()
+                val date=simpleDateFormat.parse(it)
+                if (date!=null) {
+                    cal.time = date
+                    cal.get(Calendar.DAY_OF_MONTH).toString()
+                }else{
+                    null
+                }
+            }?:"未知"
         }
-
-        public String getYangli() {
-            return yangli;
-        }
-
-        public void setYangli(String yangli) {
-            this.yangli = yangli;
-        }
-
-        public String getNongli() {
-            return nongli;
-        }
-
-        public void setNongli(String nongli) {
-            this.nongli = nongli;
-        }
-
-        public String getStar() {
-            return star;
-        }
-
-        public void setStar(String star) {
-            this.star = star;
-        }
-
-        public String getTaishen() {
-            return taishen;
-        }
-
-        public void setTaishen(String taishen) {
-            this.taishen = taishen;
-        }
-
-        public String getWuxing() {
-            return wuxing;
-        }
-
-        public void setWuxing(String wuxing) {
-            this.wuxing = wuxing;
-        }
-
-        public String getChong() {
-            return chong;
-        }
-
-        public void setChong(String chong) {
-            this.chong = chong;
-        }
-
-        public String getSha() {
-            return sha;
-        }
-
-        public void setSha(String sha) {
-            this.sha = sha;
-        }
-
-        public String getShengxiao() {
-            return shengxiao;
-        }
-
-        public void setShengxiao(String shengxiao) {
-            this.shengxiao = shengxiao;
-        }
-
-        public String getJiri() {
-            return jiri;
-        }
-
-        public void setJiri(String jiri) {
-            this.jiri = jiri;
-        }
-
-        public String getZhiri() {
-            return zhiri;
-        }
-
-        public void setZhiri(String zhiri) {
-            this.zhiri = zhiri;
-        }
-
-        public String getXiongshen() {
-            return xiongshen;
-        }
-
-        public void setXiongshen(String xiongshen) {
-            this.xiongshen = xiongshen;
-        }
-
-        public String getJishenyiqu() {
-            return jishenyiqu;
-        }
-
-        public void setJishenyiqu(String jishenyiqu) {
-            this.jishenyiqu = jishenyiqu;
-        }
-
-        public String getCaishen() {
-            return caishen;
-        }
-
-        public void setCaishen(String caishen) {
-            this.caishen = caishen;
-        }
-
-        public String getXishen() {
-            return xishen;
-        }
-
-        public void setXishen(String xishen) {
-            this.xishen = xishen;
-        }
-
-        public String getFushen() {
-            return fushen;
-        }
-
-        public void setFushen(String fushen) {
-            this.fushen = fushen;
-        }
-
-        public String getEweek() {
-            return eweek;
-        }
-
-        public void setEweek(String eweek) {
-            this.eweek = eweek;
-        }
-
-        public String getEmonth() {
-            return emonth;
-        }
-
-        public void setEmonth(String emonth) {
-            this.emonth = emonth;
-        }
-
-        public String getWeek() {
-            return week;
-        }
-
-        public void setWeek(String week) {
-            this.week = week;
-        }
-
-        public List<String> getSuici() {
-            return suici;
-        }
-
-        public void setSuici(List<String> suici) {
-            this.suici = suici;
-        }
-
-        public List<String> getYi() {
-            return yi;
-        }
-
-        public void setYi(List<String> yi) {
-            this.yi = yi;
-        }
-
-        public List<String> getJi() {
-            return ji;
-        }
-
-        public void setJi(List<String> ji) {
-            this.ji = ji;
+        fun getSha():String{
+            return chongsha?.let {
+                it.substring(it.indexOf('煞'))
+            }?:"未知"
         }
     }
 }

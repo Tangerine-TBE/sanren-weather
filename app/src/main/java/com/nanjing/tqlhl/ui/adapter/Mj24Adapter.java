@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.module_ad.utils.SizeUtils;
+import com.example.module_tool.utils.ColorUtil;
 import com.example.module_tool.utils.DeviceUtils;
 import com.nanjing.tqlhl.R;
+import com.nanjing.tqlhl.base.BaseApplication;
 import com.nanjing.tqlhl.base.BaseRecyclerViewAdapter;
-import com.nanjing.tqlhl.model.bean.Mj24WeatherBean;
-import com.nanjing.tqlhl.utils.Contents;
-import com.nanjing.tqlhl.utils.WeatherUtils;
+import com.nanjing.tqlhl.caiyun.HourlyWeather;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,25 +27,22 @@ import butterknife.ButterKnife;
  * @time 2020/9/8 17:56
  * @class describe
  */
-public class Mj24Adapter extends BaseRecyclerViewAdapter<Mj24WeatherBean.DataBean.HourlyBean,Mj24Adapter.MyHolder> {
+public class Mj24Adapter extends BaseRecyclerViewAdapter<HourlyWeather.HourlyNeedData,Mj24Adapter.MyHolder> {
     private boolean isWhite;
-
     public  Mj24Adapter(boolean isWhite) {
         this.isWhite=isWhite;
     }
-
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mj24_container, parent, false);
-        view.getLayoutParams().width= (DeviceUtils.getScreenWidth(parent.getContext()))/5;
+        view.getLayoutParams().width= (DeviceUtils.getScreenWidth(parent.getContext())- SizeUtils.dip2px(parent.getContext(),72f))/5;
         return new MyHolder(view);
     }
 
     @Override
     protected void setItemData(MyHolder holder, int position) {
-       holder.setData(mList.get(position));
-
+        holder.setData(mList.get(position));
     }
 
 
@@ -70,28 +66,25 @@ public class Mj24Adapter extends BaseRecyclerViewAdapter<Mj24WeatherBean.DataBea
             ButterKnife.bind(this,itemView);
 
         }
+        public void setData(HourlyWeather.HourlyNeedData hourlyBean) {
+            tv_item24_team.setText(hourlyBean.getTem());
+            tv_item24_date.setText(hourlyBean.getTime());
+            tv_item24_speed.setText(hourlyBean.getWindDegree());
+            iv_item24_direction.setText(hourlyBean.getWindDirection());
+            tv_item_wea.setText(hourlyBean.getSkyconDes());
 
-
-        public void setData(Mj24WeatherBean.DataBean.HourlyBean hourlyBean) {
+            iv_item24_icon.setImageResource(hourlyBean.getSkyconIcon());
 
             tv_item24_date.setTextColor(isWhite?Color.WHITE:Color.BLACK);
             tv_item24_team.setTextColor(isWhite?Color.WHITE:Color.BLACK);
             tv_item_wea.setTextColor(isWhite?Color.WHITE:Color.BLACK);
-            tv_item_wea.setText(hourlyBean.getCondition());
-            tv_item24_team.setText(WeatherUtils.addTemSymbol2(hourlyBean.getTemp()));
-            tv_item24_date.setText(WeatherUtils.formatTime(hourlyBean.getHour()));
-
-            double speed=Double.parseDouble(hourlyBean.getWindSpeed());
-            tv_item24_speed.setText(WeatherUtils.winType(speed,true));
-            iv_item24_direction.setText(WeatherUtils.formatWindyDir(hourlyBean.getWindDir()));
-            int hour = Integer.valueOf(hourlyBean.getHour());
-            if (hour >= 6 & hour < 18) {
-                iv_item24_icon.setImageResource(WeatherUtils.selectDayIcon(hourlyBean.getIconDay()).get(Contents.MJ_ICON));
-            } else {
-                iv_item24_icon.setImageResource(WeatherUtils.selectNightIcon(hourlyBean.getIconNight()).get(Contents.MJ_ICON));
+//            int hour = Integer.valueOf(hourlyBean.getHour());
+//            if (hour >= 6 & hour < 18) {
+//                iv_item24_icon.setImageResource(WeatherUtils.selectDayIcon(hourlyBean.getIconDay()).get(Contents.MJ_ICON));
+//            } else {
+//                iv_item24_icon.setImageResource(WeatherUtils.selectNightIcon(hourlyBean.getIconNight()).get(Contents.MJ_ICON));
+//            }
         }
-
-    }
     }
 
 }

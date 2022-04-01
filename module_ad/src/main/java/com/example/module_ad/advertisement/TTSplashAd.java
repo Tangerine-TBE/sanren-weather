@@ -47,7 +47,8 @@ public class TTSplashAd extends AdWatcher {
         LogUtils.i(TTSplashAd.this,screenHeight+"-------------------------->"+screenWidth);
         //step3:创建开屏广告请求参数AdSlot,具体参数含义参考文档
         AdSlot adSlot = null;
-        adSlot = new AdSlot.Builder()
+        adSlot = new 	AdSlot.Builder()
+                .setDownloadType(TTAdConstant.DOWNLOAD_TYPE_POPUP)
                 .setCodeId(mCodeId)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(screenWidth, screenHeight)

@@ -24,6 +24,7 @@ import com.example.module_ad.utils.LogUtils;
 import com.example.module_ad.utils.MyStatusBarUtil;
 import com.example.module_ad.utils.SizeUtils;
 import com.nanjing.tqlhl.R;
+import com.nanjing.tqlhl.base.BaseApplication;
 import com.nanjing.tqlhl.base.BaseFragment;
 import com.nanjing.tqlhl.base.IMainTopCallback;
 import com.nanjing.tqlhl.db.newcache.bean.CityCacheBean;
@@ -154,8 +155,6 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
             cityCacheBean.setLowHigh("26°/30°");
             cityCacheBean.setTeam("30°");
             cityCacheBean.setWea("多云");
-            cityCacheBean.setDayIcon("0");
-            cityCacheBean.setNightIcon("0");
             cityCacheBean.setAqi("20");
             mCityCacheBeans.add(cityCacheBean);
             mCityCachePresent.addCityCache(cityCacheBean);
@@ -388,32 +387,40 @@ public class HomeFragment extends BaseFragment implements ICityCacheCallback, AM
             mCurrentCity = WeatherUtils.cityType(aMapLocation.getCity());
             mLongitude = aMapLocation.getLongitude();
             mLatitude = aMapLocation.getLatitude();
+            SpUtils.getInstance().putString(Contents.LOCATION_CITY, mCurrentCity);
             boolean isFirstLocation = SpUtils.getInstance().getBoolean(Contents.FIRST_LOCATION, false);
             if (isFirstLocation) {
-                RxToast.success("已自动定位到当前城市");
-                SpUtils.getInstance().putBoolean(Contents.FIRST_LOCATION, false).commit();
+                SpUtils.getInstance().putBoolean(Contents.FIRST_LOCATION, false);
+                return;
             }
             if (!TextUtils.isEmpty(mCurrentCity)) {
-                String lastCity = SpUtils.getInstance().getString(Contents.CURRENT_CITY);
-                String lastLong = SpUtils.getInstance().getString(Contents.CURRENT_LONG);
-                String lastLat = SpUtils.getInstance().getString(Contents.CURRENT_LAT);
-
+                final   String lastCity = SpUtils.getInstance().getString(Contents.CURRENT_CITY);
+                final   String lastLong = SpUtils.getInstance().getString(Contents.CURRENT_LONG);
+                final    String lastLat = SpUtils.getInstance().getString(Contents.CURRENT_LAT);
                 if (!TextUtils.isEmpty(lastCity) & !mCurrentCity.equals(lastCity) & mCityCachePresent != null) {
-                    //更新当前城市
-                    CityCacheBean cityCacheBean = new CityCacheBean();
+                    final   CityCacheBean cityCacheBean = new CityCacheBean();
                     cityCacheBean.setCity(mCurrentCity);
                     cityCacheBean.setLongitude(mLongitude + "");
                     cityCacheBean.setLatitude(mLatitude + "");
-                    mCityCachePresent.updateLocationCity(cityCacheBean,lastCity,lastLong,lastLat);
+                    if (mCityList.size()>=1) {
+                        mCityCachePresent.addCityCache(cityCacheBean);
+                    }
+
+                    BaseApplication.getHandler().postDelayed(() -> {
+                        //更新当前城市
+                        mCityCachePresent.updateLocationCity(cityCacheBean, lastCity, lastLong, lastLat);
+                    }, 200);
+
                     mIsOne = true;
-                     SpUtils.getInstance().putString(Contents.CURRENT_CITY, mCurrentCity)
+
+                    SpUtils.getInstance().putString(Contents.CURRENT_CITY, mCurrentCity)
                             .putString(Contents.CURRENT_LONG, mLongitude + "")
-                            .putString(Contents.CURRENT_LAT, mLatitude + "")
-                             .apply();
+                            .putString(Contents.CURRENT_LAT, mLatitude + "");
                 }
             }
         }
     }
+
 
     private ValueAnimator mInTopAnimator;
     private ValueAnimator mOutTopAnimator;

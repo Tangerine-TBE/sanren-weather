@@ -104,13 +104,10 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.MyHold
                 mCityWea.setText(bean.getWea());
                 tv_city_speed.setText(bean.getWindy());
                 tv_item_currentTeam.setText("当前温度  "+bean.getTeam());
-            if (bean.getDayIcon() != null) {
-                    city_weaIcon.setImageResource(ChangeBgUtil.selectIcon()?WeatherUtils.selectDayIcon(bean.getDayIcon()).get(Contents.MJ_ICON):
-                            WeatherUtils.selectNightIcon(bean.getNightIcon()).get(Contents.MJ_ICON));
-            }
+            city_weaIcon.setImageResource(bean.getSkyIcon());
             String aqi = bean.getAqi();
             if (!TextUtils.isEmpty(aqi)) {
-                city_aqi.setText("空气  "+WeatherUtils.aqiType(Integer.valueOf(aqi)));
+                city_aqi.setText("空气  "+bean.getAqi());
             }
 
             itemView.setOnClickListener(new View.OnClickListener() {

@@ -11,8 +11,8 @@ android {
         applicationId "com.sanren.weather"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 10012
-        versionName "2.2"
+        versionCode 10013
+        versionName "2.3"
         flavorDimensions "versionCode"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -73,7 +73,7 @@ android {
 
     //    只在打包提测时改apk文件名，开发时记得注释掉
 //    applicationVariants.all { variant ->
-//               variant.getPackageApplication().outputDirectory = new File("F:/安装包/深圳市三人网络科技有限公司/三人天气预报/三人天气预报2.2")
+//               variant.getPackageApplication().outputDirectory = new File("F:/安装包/深圳市三人网络科技有限公司/三人天气预报/三人天气预报2.3")
 //              variant.outputs.all {
 //                    outputFileName = "${variant.productFlavors[0].manifestPlaceholders.get("app_name_channel")}" +
 //                          "_${variant.productFlavors[0].name}" +
@@ -82,6 +82,11 @@ android {
 //        }
 
     productFlavors {
+        _321 {
+            manifestPlaceholders = [
+                    app_name_channel: "天气-三人",
+                    CHANNEL_VALUE:"_321"]
+        }
         _anzhi {
             manifestPlaceholders = [
                     app_name_channel: "雨时天气",

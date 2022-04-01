@@ -106,7 +106,7 @@ public class HuangLiActivity extends BaseMainActivity {
 
     private void showHuangLi(HuangLiBean.ResultBean resultBean) {
         tv_date.setText(DateUtil.getDate2());
-        String nongli = resultBean.getNongli();
+        String nongli = resultBean.getYinli();
         tv_nongli.setText(nongli.substring(7, nongli.length()));
         tv_year_xx.setText(resultBean.getShengxiao() + "年");
         tv_week_xx.setText("星期" + resultBean.getWeek());
@@ -114,11 +114,11 @@ public class HuangLiActivity extends BaseMainActivity {
 
         // 宜
         StringBuffer stringBuffer1 = new StringBuffer();
-        List<String> yi = null;
-        if (resultBean.getYi().size() >= 9) {
-            yi = resultBean.getYi().subList(2, 9);
+        List<String> yi = resultBean.getYiList();
+        if (yi.size() >= 9) {
+            yi = yi.subList(2, 9);
         } else {
-            yi = resultBean.getYi().subList(2, resultBean.getYi().size());
+            yi = yi.subList(2, yi.size());
         }
         for (String s : yi) {
             stringBuffer1.append(s + "  ");
@@ -128,13 +128,12 @@ public class HuangLiActivity extends BaseMainActivity {
 
         //忌
         StringBuffer stringBuffer2 = new StringBuffer();
-        List<String> ji = null;
-        if (resultBean.getJi().size() >= 9) {
-            ji = resultBean.getJi().subList(2, 9);
-        } else if (resultBean.getJi().size() >= 2){
-            ji = resultBean.getJi().subList(2, resultBean.getJi().size());
-        }else {
-            ji = resultBean.getJi();
+        List<String> ji = resultBean.getJiList();
+
+        if (ji.size() >= 9) {
+            ji = ji.subList(2, 9);
+        } else if (ji.size() >= 2){
+            ji = ji.subList(2, ji.size());
         }
         for (String s : ji) {
             stringBuffer2.append(s + "  ");
@@ -142,29 +141,29 @@ public class HuangLiActivity extends BaseMainActivity {
         tv_ji_hl_text.setText(stringBuffer2);
 
         tv_xx_hl_text.setText(resultBean.getShengxiao());
-        tv_xz_hl_text.setText(resultBean.getStar());
+//        tv_xz_hl_text.setText(resultBean.getStar());
         tv_wx_hl_text.setText(resultBean.getWuxing());
 
-        tv_cs_hl_text.setText("喜神：" + resultBean.getXishen() + "\n" +
-                "福神：" + resultBean.getFushen() + "\n" +
-                "财神：" + resultBean.getCaishen() + "\n"
-        );
+//        tv_cs_hl_text.setText("喜神：" + resultBean.getXishen() + "\n" +
+//                "福神：" + resultBean.getFushen() + "\n" +
+//                "财神：" + resultBean.getCaishen() + "\n"
+//        );
 
-        tv_ts_hl_text.setText(resultBean.getTaishen());
+//        tv_ts_hl_text.setText(resultBean.getTaishen());
 
-        tv_c_hl_text.setText(resultBean.getChong());
+        tv_c_hl_text.setText(resultBean.getChongsha());
         tv_s_hl_text.setText(resultBean.getSha());
 
         tv_xiongshen.setText(resultBean.getXiongshen());
-        tv_jishenyiqu.setText(resultBean.getJishenyiqu());
+        tv_jishenyiqu.setText(resultBean.getJishen());
 
-        StringBuffer stringBuffer = new StringBuffer();
-        List<String> suici = resultBean.getSuici();
-        for (String s : suici) {
-            stringBuffer.append(s + "  ");
-        }
-        tv_suici.setText(stringBuffer);
-        tv_jiri.setText(resultBean.getJiri());
+//        StringBuffer stringBuffer = new StringBuffer();
+//        List<String> suici = resultBean.getSuici();
+//        for (String s : suici) {
+//            stringBuffer.append(s + "  ");
+//        }
+//        tv_suici.setText(stringBuffer);
+//        tv_jiri.setText(resultBean.getJiri());
 
     }
 

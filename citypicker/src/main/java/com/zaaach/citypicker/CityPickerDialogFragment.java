@@ -1,8 +1,11 @@
 package com.zaaach.citypicker;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,7 +28,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -184,6 +189,15 @@ public class CityPickerDialogFragment extends DialogFragment implements TextWatc
 
 
         city_bar.setVisibility(isHide?View.VISIBLE:View.GONE);
+
+        CityListAdapter.haveLocationPermission.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean) {
+                    mOnPickListener.onLocate();
+                }
+            }
+        });
     }
 
 
@@ -246,6 +260,11 @@ public class CityPickerDialogFragment extends DialogFragment implements TextWatc
             if (enableAnim) {
                 window.setWindowAnimations(mAnimStyle);
             }
+        }
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+            RequestLocationDialog requestLocationDialog=new RequestLocationDialog(getContext());
+            requestLocationDialog.requestAction((Activity) getActivity(),222);
+            requestLocationDialog.show();
         }
     }
 

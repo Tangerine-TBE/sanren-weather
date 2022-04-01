@@ -1,12 +1,14 @@
 package com.example.module_ad.advertisement;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.bytedance.sdk.openadsdk.TTAdConfig;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTCustomController;
+import com.example.module_ad.BuildConfig;
 import com.example.module_ad.R;
 import com.example.module_ad.utils.Contents;
 import com.example.module_ad.utils.LogUtils;
@@ -30,9 +32,9 @@ public class TTAdManagerHolder {
             mId = adKey.get(Contents.KT_OUTIAO_APPKEY);
             LogUtils.i(MainBaseApplication.getApplication(),"TTAdManager---------------------》"+mId);
         }
-        if (!sInit) {
-            throw new RuntimeException("TTAdSdk is not init, please check.");
-        }
+//        if (!sInit) {
+//            throw new RuntimeException("TTAdSdk is not init, please check.");
+//        }
         return TTAdSdk.getAdManager();
     }
 
@@ -43,8 +45,18 @@ public class TTAdManagerHolder {
 
     //step1:接入网盟广告sdk的初始化操作，详情见接入文档和穿山甲平台说明
     private static void doInit(Context context) {
-        if (!sInit) {
-            TTAdSdk.init(context, buildConfig(context));
+        if (!sInit&& !BuildConfig.DEBUG) {
+            TTAdSdk.init(context, buildConfig(context), new TTAdSdk.InitCallback() {
+                @Override
+                public void success() {
+                    Log.i("MyLog","头条广告初始化成功");
+                }
+
+                @Override
+                public void fail(int i, String s) {
+                    Log.i("MyLog","头条广告初始化失败");
+                }
+            });
             sInit = true;
         }
     }

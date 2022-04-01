@@ -13,7 +13,7 @@ public class WeatherUrl {
     //墨迹天气
     public static final String MJ_WEATHER_URL = "http://aliv8.data.moji.com/whapi/json/aliweather/";
     //黄历
-    public static final String HUANG_LI = "https://jisuhlcx.market.alicloudapi.com/";
+    public static final String HUANG_LI = "http://v.juhe.cn/";
 
 
     //注册接口

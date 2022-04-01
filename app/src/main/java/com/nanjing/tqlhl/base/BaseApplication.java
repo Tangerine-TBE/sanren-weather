@@ -5,6 +5,7 @@ import android.os.Handler;
 
 import com.example.module_ad.advertisement.TTAdManagerHolder;
 import com.example.module_tool.utils.SPUtil;
+import com.nanjing.tqlhl.utils.ChangeBgUtil;
 import com.nanjing.tqlhl.utils.Contents;
 import com.nanjing.tqlhl.utils.PackageUtil;
 import com.nanjing.tqlhl.utils.SpUtils;
@@ -23,7 +24,7 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
 
     //控制log显示等级
     public static final int LogLevel=0;
-
+    public static boolean isDay;
     public static  Handler  sHandler=null;
     public static  Context  sContext=null;
 
@@ -49,8 +50,7 @@ public class BaseApplication extends com.example.module_tool.base.BaseApplicatio
         TTAdManagerHolder.init(getApplicationContext());
 
 
-
-
+        isDay = ChangeBgUtil.selectIcon();
 
         sContext=getApplicationContext();
         sHandler=new Handler();

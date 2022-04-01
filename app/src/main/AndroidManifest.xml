@@ -67,7 +67,7 @@
         <activity android:name="com.nanjing.tqlhl.ui.activity.BackActivity" android:theme="@style/TransparentTheme"></activity>
         <activity
             android:name="com.nanjing.tqlhl.ui.activity.SettingActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask"/>
         <activity android:name="com.nanjing.tqlhl.ui.activity.AirActivity"  android:launchMode="singleTop" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.ToolActivity"  android:launchMode="singleTop" />
         <activity android:name="com.nanjing.tqlhl.ui.activity.VipActivity"  />
@@ -130,54 +130,6 @@
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!--====================================================================================-->
-
-
-        <!-- 穿山甲广告 -->
-        <provider
-            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
-            android:authorities="${applicationId}.TTFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-        <!-- ===================================================================== -->
-
-
-        <!-- 广点通 -->
-        <!-- 声明SDK所需要的组件 -->
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                tools:replace="android:resource"
-                android:resource="@xml/gdt_file_path" />
-        </provider>
-
-
-        <service
-            android:name="com.qq.e.comm.DownloadService"
-            android:exported="false" />
-
-        <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
-        <activity
-            android:name="com.qq.e.ads.ADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.qq.e.ads.PortraitADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.qq.e.ads.LandscapeADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape" />
-
-        <!-- ===================================================================== -->
 
 
         <!--高德地图-->

@@ -100,8 +100,8 @@ public interface Api {
         Call<Mj5AqiBean> getMj5AqiWeather(@Query("lon") String lon, @Query("lat") String lat);
 
         //黄历
-        @GET("huangli/date")
-        Call<HuangLiBean> getHuangLi(@Header("Authorization") String key, @Query("day") String day, @Query("month") String month, @Query("year") String year);
+        @GET("laohuangli/d")
+        Call<HuangLiBean> getHuangLi(@Query("key") String key,@Query("date") String day);
 
 
 }

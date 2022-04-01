@@ -9,7 +9,7 @@ import com.example.module_ad.utils.LogUtils;
 import com.example.module_base.MainBaseApplication;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
-import com.qq.e.comm.managers.GDTADManager;
+import com.qq.e.comm.managers.GDTAdSdk;
 import com.qq.e.comm.util.AdError;
 
 public class TXSplashAd extends AdWatcher{
@@ -31,7 +31,7 @@ public class TXSplashAd extends AdWatcher{
         this.mSplashContainer=frameLayout;
         this.mIsClose=isClose;
         this.mClass=aClass;
-        GDTADManager.getInstance().initWith(activity, appid);
+        GDTAdSdk.init(activity.getApplication(), appid);
     }
 
 

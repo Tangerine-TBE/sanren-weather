@@ -1,6 +1,9 @@
 package com.zaaach.citypicker.adapter;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -12,11 +15,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zaaach.citypicker.R;
+import com.zaaach.citypicker.RequestLocationDialog;
 import com.zaaach.citypicker.adapter.decoration.GridItemDecoration;
 import com.zaaach.citypicker.model.City;
 import com.zaaach.citypicker.model.HotCity;
@@ -195,6 +201,17 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.BaseVi
                             mInnerListener.locate();
                         }
                     }
+                    if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+                        if (mContext instanceof Activity){
+
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                                ((Activity) mContext).requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_CODE);
+//                            }
+                            RequestLocationDialog requestLocationDialog=new RequestLocationDialog(mContext);
+                            requestLocationDialog.requestAction((Activity) mContext,REQUEST_LOCATION_CODE);
+                            requestLocationDialog.show();
+                        }
+                    }
                 }
             });
             //第一次弹窗，如果未定位则自动定位
@@ -213,7 +230,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.BaseVi
             ((HotViewHolder) holder).mRecyclerView.setAdapter(mMAdapter);
         }
     }
-
+    public static final int REQUEST_LOCATION_CODE =85;
+    public static MutableLiveData<Boolean> haveLocationPermission=new MutableLiveData<>();
     @Override
     public int getItemCount() {
         return mData == null ? 0 : mData.size();

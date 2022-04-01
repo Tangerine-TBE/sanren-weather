@@ -21,7 +21,7 @@ public class Contents {
 
 
     //黄历key
-    public static final String HUANG_LI_KEY="APPCODE dad203ec1a164924b728fd76d67429f7";
+    public static final String HUANG_LI_KEY="5bc896feb96a91a619c72937e88c10a3";
 
 
 
@@ -149,6 +149,7 @@ public class Contents {
     public static final String USER_VIP_TIME = "vip_time";
     public static final String USER_LOGIN_TIME = "user_login_time";
 
+    public static final String LOCATION_CITY="ssfdfsa";
     //第一次启动
     public static final String IS_FIRST = "one";
     public static final String FIRST_LOCATION = "first_location";

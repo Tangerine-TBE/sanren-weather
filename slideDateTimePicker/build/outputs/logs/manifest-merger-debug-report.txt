@@ -1,25 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
+ADDED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml:3:1-8:12
 	package
-		ADDED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml:5:5-52
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+		ADDED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml:5:5-52
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml:4:5-63
+		ADDED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml:4:5-63
 uses-sdk
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-		ADDED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+		ADDED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-		ADDED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
-		INJECTED from D:\myProject\weather\weather_tianqitong\slideDateTimePicker\src\main\AndroidManifest.xml
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+		ADDED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml
+		INJECTED from E:\StudioProjects\AAA_weather\sanren-weather\slideDateTimePicker\src\main\AndroidManifest.xml

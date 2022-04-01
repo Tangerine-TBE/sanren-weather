@@ -1,5 +1,6 @@
 package com.example.module_ad.bean;
 
+import com.example.module_ad.BuildConfig;
 import com.example.module_ad.base.IBaseAdBean;
 import com.example.module_ad.base.IBaseXXBean;
 
@@ -345,6 +346,9 @@ public class AdBean {
                 private String ad_percent;
 
                 public boolean isStatus() {
+                    if (BuildConfig.DEBUG){
+                        return false;
+                    }
                     return status;
                 }
 

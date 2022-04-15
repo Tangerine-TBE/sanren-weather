@@ -1,7 +1,5 @@
 package com.nanjing.tqlhl.caiyun
 
-import com.nanjing.tqlhl.model.bean.MjRealWeatherBean
-
 class RealTimeWeather {
     var status: String? = null
     var api_version: String? = null

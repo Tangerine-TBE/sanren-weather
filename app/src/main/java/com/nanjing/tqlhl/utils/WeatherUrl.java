@@ -4,10 +4,10 @@ public class WeatherUrl {
 
     //彩云天气
     public static final String WEATHER_URL = "https://api.caiyunapp.com";
-    public static final String WEATHER_REAL_TIME = "/v2.5/1RSIsl63PoUkwn0f/%s,%s/realtime.json";//实时天气接口
-    public static final String WEATHER_PREDICTION_DAILY = "/v2.5/1RSIsl63PoUkwn0f/%s,%s/daily.json";//天级别的预报接口
-    public static final String WEATHER_PREDICTION_HOURLY = "/v2.5/1RSIsl63PoUkwn0f/%s,%s/hourly.json";//小时级别的预报接口
-    public static final String WEATHER_PREDICTION = "/v2.5/1RSIsl63PoUkwn0f/%s,%s/forecast.json";//预报接口
+    public static final String WEATHER_REAL_TIME = "/v2.5/97jF1iLZ81PziwVm/%s,%s/realtime.json";//实时天气接口
+    public static final String WEATHER_PREDICTION_DAILY = "/v2.5/97jF1iLZ81PziwVm/%s,%s/daily.json";//天级别的预报接口
+    public static final String WEATHER_PREDICTION_HOURLY = "/v2.5/97jF1iLZ81PziwVm/%s,%s/hourly.json";//小时级别的预报接口
+    public static final String WEATHER_PREDICTION = "/v2.5/97jF1iLZ81PziwVm/%s,%s/forecast.json";//预报接口
 
 
     //墨迹天气

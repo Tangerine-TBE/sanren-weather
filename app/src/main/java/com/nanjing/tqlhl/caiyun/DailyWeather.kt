@@ -7,7 +7,7 @@ import kotlin.collections.ArrayList
 import kotlin.math.abs
 
 /**
- * https://api.caiyunapp.com/v2.5/1RSIsl63PoUkwn0f/121.6544,25.1552/daily.json
+ * https://api.caiyunapp.com/v2.5/97jF1iLZ81PziwVm/121.6544,25.1552/daily.json
  */
 data class DailyWeather(
         val api_status: String,

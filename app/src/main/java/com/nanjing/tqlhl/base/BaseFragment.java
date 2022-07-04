@@ -49,12 +49,16 @@ public abstract class BaseFragment extends Fragment {
         mFrameLayout= view.findViewById(R.id.base_container);
         loadView();
         mBind = ButterKnife.bind(this, view);
-       // ChangeBgUtil.selectBg(mErrorVw,R.mipmap.loading_day,R.mipmap.home_night_bg);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         intView();
         intPresent();
         intLoad();
         intEvent();
-        return view;
     }
 
     protected void intReload() {

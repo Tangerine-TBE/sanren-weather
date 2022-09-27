@@ -87,20 +87,21 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
     public int getLayoutId() {
         return R.layout.activity_setting;
     }
+
     @Override
     protected void intPresent() {
         mLogoutPresent = LogoutPresentImpl.getInstance();
         mLogoutPresent.registerCallback(this);
         mSharedPreferences = BaseApplication.getAppContext().getSharedPreferences(Contents.USER_INFO, MODE_PRIVATE);
 
-        mIsLogin = mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN,false);
+        mIsLogin = mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN, false);
 
 
         if (mIsLogin) {
-            TextViewSize(mLogin_go,true);
+            TextViewSize(mLogin_go, true);
             mLogin_go.setText(mSharedPreferences.getString(Contents.USER_ID, ""));
         } else {
-            TextViewSize(mLogin_go,false);
+            TextViewSize(mLogin_go, false);
             mLogin_go.setText("立即登录");
         }
 
@@ -117,8 +118,6 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         mBanFeedHelper.showAd(BanFeedHelper.AdType.SETTING_PAGE);
 
     }
-
-
 
 
     @Override
@@ -144,21 +143,20 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         tv_bar_title.setVisibility(View.VISIBLE);
         tv_bar_title.setText("设置");
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_city, "城市管理"));
-      //  mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户反馈"));
+        mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户反馈"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_guanyu, "关于我们"));
         mSettingBeanList.add(new SettingBean(R.mipmap.setting_banben, "隐私政策"));
-        mSettingBeanList.add(new SettingBean(R.mipmap.setting_feekback, "用户协议"));
-       mSettingBeanList.add(new SettingBean(R.drawable.ic_baseline_settings_power_24, "账号注销"));
+        mSettingBeanList.add(new SettingBean(R.mipmap.setting_user, "用户协议"));
+        mSettingBeanList.add(new SettingBean(R.drawable.ic_baseline_settings_power_24, "账号注销"));
 
         mRxDialogSureCancel = new RxDialogSureCancel(this);
 
-        LinearLayoutManager manager = new GridLayoutManager(this,4);
+        LinearLayoutManager manager = new GridLayoutManager(this, 4);
         mContainer.setLayoutManager(manager);
         mSettingAdapter = new SettingAdapter();
         mContainer.setAdapter(mSettingAdapter);
         mSettingAdapter.setData(mSettingBeanList);
     }
-
 
 
     @Override
@@ -176,7 +174,7 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         setting_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN,false)) {
+                if (mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN, false)) {
                     mRxDialogSureCancel.show();
                 } else {
                     startActivity(new Intent(SettingActivity.this, LoginActivity.class));
@@ -191,7 +189,7 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
             public void onClick(View view) {
                 SpUtil.deleteUserInfo();
                 mRxDialogSureCancel.dismiss();
-                TextViewSize(mLogin_go,false);
+                TextViewSize(mLogin_go, false);
                 mLogin_go.setText("立即登录");
             }
         });
@@ -206,7 +204,7 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         rl_vip_des.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SettingActivity.this,VipActivity.class));
+                startActivity(new Intent(SettingActivity.this, VipActivity.class));
             }
         });
 
@@ -218,18 +216,21 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
         Intent intent = new Intent();
         switch (position) {
             case 0:
-              intent.setClass(this, CityManageActivity.class);
+                intent.setClass(this, CityManageActivity.class);
                 break;
             case 1:
-                intent.setClass(this, AboutActivity.class);
+                intent.setClass(this, SendFeedbackActivity.class);
                 break;
             case 2:
-                intent.setClass(this, PrivacyActivity.class);
+                intent.setClass(this, AboutActivity.class);
                 break;
             case 3:
-                intent.setClass(this, AgreementActivity.class);
+                intent.setClass(this, PrivacyActivity.class);
                 break;
             case 4:
+                intent.setClass(this, AgreementActivity.class);
+                break;
+            case 5:
                 if (mSharedPreferences.getBoolean(Contents.USER_IS_LOGIN, false)) {
                     if (!isFinishing()) {
                         mLogout.show();
@@ -245,16 +246,16 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
     @Override
     public void onLoginSuccess(LoginBean loginBean) {
         if (mLogin_go != null) {
-            TextViewSize(mLogin_go,true);
-            mLogin_go.setText(loginBean.getData().getId()+"");
+            TextViewSize(mLogin_go, true);
+            mLogin_go.setText(loginBean.getData().getId() + "");
         }
     }
 
     @Override
     public void onThirdlyLoginSuccess(LoginBean bean) {
         if (mLogin_go != null) {
-            TextViewSize(mLogin_go,true);
-            mLogin_go.setText(bean.getData().getId()+"");
+            TextViewSize(mLogin_go, true);
+            mLogin_go.setText(bean.getData().getId() + "");
         }
     }
 
@@ -283,7 +284,7 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
 
     }
 
-    private void TextViewSize(TextView login_go,boolean isTrue) {
+    private void TextViewSize(TextView login_go, boolean isTrue) {
         if (isTrue) {
             ViewGroup.LayoutParams layoutParams = login_go.getLayoutParams();
             layoutParams.height = 100;
@@ -291,8 +292,8 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
             login_go.setLayoutParams(layoutParams);
         } else {
             ViewGroup.LayoutParams layoutParams = login_go.getLayoutParams();
-            layoutParams.height= SizeUtils.dip2px(this,26);
-            layoutParams.width=SizeUtils.dip2px(this,76);
+            layoutParams.height = SizeUtils.dip2px(this, 26);
+            layoutParams.width = SizeUtils.dip2px(this, 76);
             login_go.setLayoutParams(layoutParams);
         }
 
@@ -370,8 +371,8 @@ public class SettingActivity extends BaseMainActivity implements SettingAdapter.
     @Override
     public void onWxLoginSuccess(LoginBean loginBean) {
         if (mLogin_go != null) {
-            TextViewSize(mLogin_go,true);
-            mLogin_go.setText(loginBean.getData().getId()+"");
+            TextViewSize(mLogin_go, true);
+            mLogin_go.setText(loginBean.getData().getId() + "");
         }
     }
 

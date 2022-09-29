@@ -181,7 +181,8 @@
         <activity
             android:name="com.qq.e.ads.LandscapeADActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            tools:replace="android:screenOrientation"/>
 
         <!-- ===================================================================== -->
 

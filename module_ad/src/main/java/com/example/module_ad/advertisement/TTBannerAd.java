@@ -44,7 +44,6 @@ public class TTBannerAd extends AdWatcher {
         }
         mBannerContainer.setVisibility(View.VISIBLE);
         AdSlot adSlot = new 	AdSlot.Builder()
-                .setDownloadType(TTAdConstant.DOWNLOAD_TYPE_POPUP)
                 .setCodeId(mCodeId)
                 .setSupportDeepLink(true)
                 .setAdCount(3)

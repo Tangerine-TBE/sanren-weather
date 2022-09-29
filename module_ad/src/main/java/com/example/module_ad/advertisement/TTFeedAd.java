@@ -48,7 +48,6 @@ public class TTFeedAd extends AdWatcher {
         LogUtils.i(TTFeedAd.this,"宽-------------->"+ mExpressViewWidth);
         //step4:创建广告请求参数AdSlot,具体参数含义参考文档
         AdSlot adSlot = new 	AdSlot.Builder()
-                .setDownloadType(TTAdConstant.DOWNLOAD_TYPE_POPUP)
                 .setCodeId(mCodeId) //广告位id
                 .setSupportDeepLink(true)
                 .setAdCount(1) //请求广告数量为1到3条

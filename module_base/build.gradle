@@ -32,7 +32,7 @@ dependencies {
     api rootProject.ext.dependencies["fastjson"]
 
     //友盟
-    api rootProject.ext.dependencies["umeng_common"]
-    api rootProject.ext.dependencies["umeng_asms"]
-    api rootProject.ext.dependencies["umeng_crash"]
+    api  'com.umeng.umsdk:common:9.5.2'// 必选
+    api  'com.umeng.umsdk:asms:1.6.3'// 必选
+    api 'com.umeng.umsdk:apm:1.7.0'
 }

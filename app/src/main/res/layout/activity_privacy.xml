@@ -6,29 +6,33 @@
 
 
     <include android:id="@+id/privacy_toolbar" layout="@layout/layout_toolbar_new"/>
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/NestedScrollView"
-        android:layout_below="@id/privacy_toolbar"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="vertical"
-        android:overScrollMode="never"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/privacy_toolbar"/>
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/NestedScrollView"-->
+<!--        android:layout_below="@id/privacy_toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:fillViewport="true"-->
+<!--        android:scrollbars="vertical"-->
+<!--        android:overScrollMode="never"-->
+<!--        android:layout_height="match_parent">-->
 
 
-        <TextView
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:id="@+id/text"
-            android:textSize="16sp"
-            android:textColorLink="#0000ff"
-            android:autoLink="all"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+<!--        <TextView-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:paddingRight="5dp"-->
+<!--            android:id="@+id/text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColorLink="#0000ff"-->
+<!--            android:autoLink="all"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
 
-    </androidx.core.widget.NestedScrollView>
+<!--    </androidx.core.widget.NestedScrollView>-->
 
 
 </RelativeLayout>
